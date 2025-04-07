@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -14,7 +15,7 @@ const Index = () => {
       id: "1",
       title: "How to Fix a Leaky Faucet",
       description: "Learn how to identify and fix common faucet leaks without calling a plumber. Save money and gain confidence in basic home repairs.",
-      image: "https://images.unsplash.com/photo-1585704032915-c3400ee75147?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
+      image: "/images/leaky-faucet-repair.jpg",
       duration: "15 min",
       author: "Mike R.",
       difficulty: "Beginner" as const,
@@ -24,7 +25,7 @@ const Index = () => {
       id: "2",
       title: "Create Your First Monthly Budget",
       description: "Take control of your finances with this simple step-by-step guide to creating a monthly budget that works for your lifestyle.",
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YnVkZ2V0fGVufDB8fDB8fHww",
+      image: "/images/placeholder.svg",
       duration: "20 min",
       author: "Sarah L.",
       difficulty: "Beginner" as const,
@@ -34,7 +35,7 @@ const Index = () => {
       id: "3",
       title: "Change Your Car's Oil",
       description: "Learn how to change your car's oil yourself with these easy-to-follow steps, saving you time and money on regular maintenance.",
-      image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2FyJTIwb2lsJTIwY2hhbmdlfGVufDB8fDB8fHww",
+      image: "/images/placeholder.svg", 
       duration: "30 min",
       author: "Carlos G.",
       difficulty: "Intermediate" as const,
@@ -44,7 +45,7 @@ const Index = () => {
       id: "4",
       title: "Master Basic Cooking Techniques",
       description: "Learn essential cooking methods that will serve as the foundation for countless delicious meals. Includes knife skills and food safety.",
-      image: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y29va2luZ3xlbnwwfHwwfHx8MA%3D%3D",
+      image: "/images/placeholder.svg",
       duration: "45 min",
       author: "Emma T.",
       difficulty: "Beginner" as const,

@@ -1,3 +1,4 @@
+
 import { useParams } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -14,7 +15,7 @@ const Tutorial = () => {
     "1": {
       title: "How to Fix a Leaky Faucet",
       description: "Learn how to identify and fix common faucet leaks without calling a plumber. Save money and gain confidence in basic home repairs.",
-      image: "/images/leaky-faucet-repair.jpg", // We'll add this image to public folder
+      image: "/images/leaky-faucet-repair.jpg",
       duration: "15 min",
       author: "Mike R.",
       difficulty: "Beginner",
@@ -131,7 +132,7 @@ const Tutorial = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Tutorial Header */}
-        <div className="bg-gradient-to-r from-lifecraft-500 to-lifecraft-600 py-12">
+        <div className="bg-gradient-to-r from-red-500 to-red-600 py-12">
           <div className="container">
             <div className="flex flex-col md:flex-row gap-8">
               <div className="flex-1">
@@ -146,7 +147,7 @@ const Tutorial = () => {
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   {tutorial.title}
                 </h1>
-                <p className="text-lifecraft-100 mb-6">
+                <p className="text-red-100 mb-6">
                   {tutorial.description}
                 </p>
                 <div className="flex items-center gap-4 text-white">
@@ -168,7 +169,11 @@ const Tutorial = () => {
                   <img 
                     src={tutorial.image} 
                     alt={tutorial.title}
-                    className="w-full h-auto rounded" 
+                    className="w-full h-auto rounded"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = "/placeholder.svg";
+                    }} 
                   />
                 </div>
               </div>
