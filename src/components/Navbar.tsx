@@ -32,10 +32,10 @@ const Navbar = () => {
         
         {/* Desktop navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <Link to="/" className="font-medium hover:text-red-500 transition-colors">Home</Link>
-          <Link to="/skills" className="font-medium hover:text-red-500 transition-colors">Skills</Link>
-          <Link to="/community" className="font-medium hover:text-red-500 transition-colors">Community</Link>
-          <Link to="/tracks" className="font-medium hover:text-red-500 transition-colors">Learning Tracks</Link>
+          <Link to="/" className="font-medium hover:text-teal-500 transition-colors">Home</Link>
+          <Link to="/skills" className="font-medium hover:text-teal-500 transition-colors">Skills</Link>
+          <Link to="/community" className="font-medium hover:text-teal-500 transition-colors">Community</Link>
+          <Link to="/tracks" className="font-medium hover:text-teal-500 transition-colors">Learning Tracks</Link>
         </nav>
         
         <div className="hidden md:flex items-center gap-4">
@@ -53,16 +53,16 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="fixed inset-0 top-16 z-50 bg-background md:hidden animate-fade-in">
           <nav className="container flex flex-col gap-6 p-6">
-            <Link to="/" className="flex items-center justify-between py-3 font-medium hover:text-red-500 transition-colors border-b">
+            <Link to="/" className="flex items-center justify-between py-3 font-medium hover:text-teal-500 transition-colors border-b">
               Home
             </Link>
-            <Link to="/skills" className="flex items-center justify-between py-3 font-medium hover:text-red-500 transition-colors border-b">
+            <Link to="/skills" className="flex items-center justify-between py-3 font-medium hover:text-teal-500 transition-colors border-b">
               Skills
             </Link>
-            <Link to="/community" className="flex items-center justify-between py-3 font-medium hover:text-red-500 transition-colors border-b">
+            <Link to="/community" className="flex items-center justify-between py-3 font-medium hover:text-teal-500 transition-colors border-b">
               Community
             </Link>
-            <Link to="/tracks" className="flex items-center justify-between py-3 font-medium hover:text-red-500 transition-colors border-b">
+            <Link to="/tracks" className="flex items-center justify-between py-3 font-medium hover:text-teal-500 transition-colors border-b">
               Learning Tracks
             </Link>
             <div className="mt-6">

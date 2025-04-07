@@ -28,7 +28,7 @@ const NewsletterSubscribe = () => {
   };
 
   return (
-    <div className="bg-red-50 p-6 rounded-lg">
+    <div className="bg-teal-50 p-6 rounded-lg">
       <h3 className="font-semibold text-lg mb-3">Stay Updated</h3>
       <p className="text-gray-600 text-sm mb-4">
         Subscribe to our newsletter for new tutorials, tips, and community highlights.
@@ -46,7 +46,7 @@ const NewsletterSubscribe = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
               required
             />
             {error && <p className="text-red-500 text-xs mt-1">{error}</p>}

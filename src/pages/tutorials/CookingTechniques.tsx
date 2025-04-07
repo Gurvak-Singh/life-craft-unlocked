@@ -117,7 +117,7 @@ const CookingTechniques = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Tutorial Header */}
-        <div className="bg-gradient-to-r from-red-500 to-red-600 py-12">
+        <div className="bg-gradient-to-r from-teal-500 to-teal-600 py-12">
           <div className="container">
             <div className="flex flex-col md:flex-row gap-8">
               <div className="flex-1">
@@ -131,7 +131,7 @@ const CookingTechniques = () => {
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   {tutorial.title}
                 </h1>
-                <p className="text-red-100 mb-6">
+                <p className="text-teal-100 mb-6">
                   {tutorial.description}
                 </p>
                 <div className="flex items-center gap-4 text-white">
@@ -221,7 +221,7 @@ const CookingTechniques = () => {
                 <div className="space-y-6">
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <textarea 
-                      className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                      className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
                       placeholder="Share your thoughts or ask a question..."
                       rows={4}
                     ></textarea>
@@ -240,15 +240,15 @@ const CookingTechniques = () => {
                   <h3 className="font-semibold mb-4">Related Tutorials</h3>
                   <div className="space-y-4">
                     <Link to="/tutorials/meal-prep-basics" className="block">
-                      <p className="font-medium hover:text-red-500 transition-colors">Meal Prep Basics: Cook Once, Eat All Week</p>
+                      <p className="font-medium hover:text-teal-500 transition-colors">Meal Prep Basics: Cook Once, Eat All Week</p>
                       <p className="text-sm text-gray-500">25 min read</p>
                     </Link>
                     <Link to="/tutorials/baking-bread" className="block">
-                      <p className="font-medium hover:text-red-500 transition-colors">Beginner's Guide to Baking Bread</p>
+                      <p className="font-medium hover:text-teal-500 transition-colors">Beginner's Guide to Baking Bread</p>
                       <p className="text-sm text-gray-500">35 min read</p>
                     </Link>
                     <Link to="/tutorials/simple-sauces" className="block">
-                      <p className="font-medium hover:text-red-500 transition-colors">5 Simple Sauces to Elevate Any Meal</p>
+                      <p className="font-medium hover:text-teal-500 transition-colors">5 Simple Sauces to Elevate Any Meal</p>
                       <p className="text-sm text-gray-500">20 min read</p>
                     </Link>
                   </div>
@@ -264,16 +264,16 @@ const CookingTechniques = () => {
                 <Card className="mb-6">
                   <h3 className="font-semibold mb-4">Tools You Might Need</h3>
                   <div className="space-y-3">
-                    <a href="#" className="flex items-center text-sm gap-2 hover:text-red-500 transition-colors">
+                    <a href="#" className="flex items-center text-sm gap-2 hover:text-teal-500 transition-colors">
                       <span>• Chef's Knife Set</span>
                     </a>
-                    <a href="#" className="flex items-center text-sm gap-2 hover:text-red-500 transition-colors">
+                    <a href="#" className="flex items-center text-sm gap-2 hover:text-teal-500 transition-colors">
                       <span>• Cutting Boards</span>
                     </a>
-                    <a href="#" className="flex items-center text-sm gap-2 hover:text-red-500 transition-colors">
+                    <a href="#" className="flex items-center text-sm gap-2 hover:text-teal-500 transition-colors">
                       <span>• Measuring Cups and Spoons</span>
                     </a>
-                    <a href="#" className="flex items-center text-sm gap-2 hover:text-red-500 transition-colors">
+                    <a href="#" className="flex items-center text-sm gap-2 hover:text-teal-500 transition-colors">
                       <span>• Quality Cookware Set</span>
                     </a>
                   </div>

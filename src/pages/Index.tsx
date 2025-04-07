@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
@@ -15,7 +14,7 @@ const Index = () => {
       id: "1",
       title: "How to Fix a Leaky Faucet",
       description: "Learn how to identify and fix common faucet leaks without calling a plumber. Save money and gain confidence in basic home repairs.",
-      image: "/images/leaky-faucet-repair.jpg",
+      image: "https://images.unsplash.com/photo-1585704032915-c3400ee75147?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
       duration: "15 min",
       author: "Mike R.",
       difficulty: "Beginner" as const,
@@ -25,7 +24,7 @@ const Index = () => {
       id: "2",
       title: "Create Your First Monthly Budget",
       description: "Take control of your finances with this simple step-by-step guide to creating a monthly budget that works for your lifestyle.",
-      image: "/images/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
       duration: "20 min",
       author: "Sarah L.",
       difficulty: "Beginner" as const,
@@ -35,7 +34,7 @@ const Index = () => {
       id: "3",
       title: "Change Your Car's Oil",
       description: "Learn how to change your car's oil yourself with these easy-to-follow steps, saving you time and money on regular maintenance.",
-      image: "/images/placeholder.svg", 
+      image: "https://images.unsplash.com/photo-1620149401198-97db226527d4?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
       duration: "30 min",
       author: "Carlos G.",
       difficulty: "Intermediate" as const,
@@ -45,7 +44,7 @@ const Index = () => {
       id: "4",
       title: "Master Basic Cooking Techniques",
       description: "Learn essential cooking methods that will serve as the foundation for countless delicious meals. Includes knife skills and food safety.",
-      image: "/images/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1556911220-e15b29b29330?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
       duration: "45 min",
       author: "Emma T.",
       difficulty: "Beginner" as const,
@@ -60,42 +59,42 @@ const Index = () => {
       description: "Learn to fix and maintain your living space",
       icon: Home,
       path: "/skills/home-repair",
-      color: "bg-blue-100"
+      color: "bg-teal-100"
     },
     {
       title: "Car Maintenance",
       description: "Keep your vehicle running smoothly",
       icon: Car,
       path: "/skills/car-maintenance",
-      color: "bg-red-100"
+      color: "bg-teal-100"
     },
     {
       title: "Budgeting",
       description: "Master your personal finances",
       icon: Calculator,
       path: "/skills/budgeting",
-      color: "bg-green-100"
+      color: "bg-teal-100"
     },
     {
       title: "Digital Literacy",
       description: "Navigate the digital world with confidence",
       icon: Monitor,
       path: "/skills/digital",
-      color: "bg-purple-100"
+      color: "bg-teal-100"
     },
     {
       title: "Cooking",
       description: "Cook delicious and healthy meals",
       icon: Utensils,
       path: "/skills/cooking",
-      color: "bg-yellow-100"
+      color: "bg-teal-100"
     },
     {
       title: "DIY Projects",
       description: "Create and build with your own hands",
       icon: Wrench,
       path: "/skills/diy",
-      color: "bg-orange-100"
+      color: "bg-teal-100"
     }
   ];
 
@@ -105,25 +104,25 @@ const Index = () => {
       title: "Learn Essential Skills",
       description: "Access clear, step-by-step tutorials that teach practical skills everyone should know",
       icon: "📚",
-      color: "bg-blue-100 text-blue-600"
+      color: "bg-teal-100 text-teal-600"
     },
     {
       title: "Save Time & Money",
       description: "Learn to handle common tasks yourself instead of paying professionals for simple fixes",
       icon: "💰",
-      color: "bg-green-100 text-green-600"
+      color: "bg-teal-100 text-teal-600"
     },
     {
       title: "Build Confidence",
       description: "Gain the confidence to tackle challenges and become more self-reliant in daily life",
       icon: "🚀",
-      color: "bg-purple-100 text-purple-600"
+      color: "bg-teal-100 text-teal-600"
     },
     {
       title: "Join a Community",
       description: "Connect with others who are learning similar skills and share your experiences",
       icon: "👥",
-      color: "bg-orange-100 text-orange-600"
+      color: "bg-teal-100 text-teal-600"
     }
   ];
 
@@ -224,7 +223,7 @@ const Index = () => {
                     {[...Array(5)].map((_, i) => (
                       <Star 
                         key={i} 
-                        className={`h-4 w-4 ${i < testimonial.rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`} 
+                        className={`h-4 w-4 ${i < testimonial.rating ? 'text-teal-400 fill-teal-400' : 'text-gray-300'}`} 
                       />
                     ))}
                   </div>
@@ -258,7 +257,7 @@ const Index = () => {
         {/* CTA Section */}
         <section className="py-16">
           <div className="container">
-            <div className="bg-red-500 rounded-2xl overflow-hidden">
+            <div className="bg-teal-500 rounded-2xl overflow-hidden">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="p-8 md:p-12 flex flex-col justify-center">
                   <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -283,7 +282,7 @@ const Index = () => {
                     </div>
                   </div>
                   <div>
-                    <PrimaryButton className="bg-white text-red-500 hover:bg-gray-100">
+                    <PrimaryButton className="bg-white text-teal-500 hover:bg-gray-100">
                       Explore Learning Tracks
                     </PrimaryButton>
                   </div>
@@ -349,28 +348,28 @@ const Index = () => {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               <Card>
-                <h3 className="text-xl font-semibold mb-3 text-red-500">Is LifeCraft free to use?</h3>
+                <h3 className="text-xl font-semibold mb-3 text-teal-500">Is LifeCraft free to use?</h3>
                 <p className="text-gray-700">
                   Yes! Most of our tutorials and resources are completely free. We also offer premium content and personalized coaching for those who want to take their learning to the next level.
                 </p>
               </Card>
               
               <Card>
-                <h3 className="text-xl font-semibold mb-3 text-red-500">How do I track my progress?</h3>
+                <h3 className="text-xl font-semibold mb-3 text-teal-500">How do I track my progress?</h3>
                 <p className="text-gray-700">
                   Create a free account to track completed tutorials, save favorites, and follow your learning path. Your dashboard will show your progress and suggest next steps.
                 </p>
               </Card>
               
               <Card>
-                <h3 className="text-xl font-semibold mb-3 text-red-500">Can I contribute my own tutorials?</h3>
+                <h3 className="text-xl font-semibold mb-3 text-teal-500">Can I contribute my own tutorials?</h3>
                 <p className="text-gray-700">
                   Absolutely! We welcome community contributions. Visit our "Contribute" page to learn how you can share your knowledge and help others learn practical skills.
                 </p>
               </Card>
               
               <Card>
-                <h3 className="text-xl font-semibold mb-3 text-red-500">Are the tutorials suitable for beginners?</h3>
+                <h3 className="text-xl font-semibold mb-3 text-teal-500">Are the tutorials suitable for beginners?</h3>
                 <p className="text-gray-700">
                   Yes, our tutorials are designed for all skill levels. We clearly mark the difficulty level of each tutorial and provide extra guidance for beginners.
                 </p>

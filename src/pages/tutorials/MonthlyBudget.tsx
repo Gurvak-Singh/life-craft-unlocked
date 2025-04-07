@@ -108,7 +108,7 @@ const MonthlyBudget = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Tutorial Header */}
-        <div className="bg-gradient-to-r from-red-500 to-red-600 py-12">
+        <div className="bg-gradient-to-r from-teal-500 to-teal-600 py-12">
           <div className="container">
             <div className="flex flex-col md:flex-row gap-8">
               <div className="flex-1">
@@ -122,7 +122,7 @@ const MonthlyBudget = () => {
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   {tutorial.title}
                 </h1>
-                <p className="text-red-100 mb-6">
+                <p className="text-teal-100 mb-6">
                   {tutorial.description}
                 </p>
                 <div className="flex items-center gap-4 text-white">
@@ -212,7 +212,7 @@ const MonthlyBudget = () => {
                 <div className="space-y-6">
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <textarea 
-                      className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                      className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
                       placeholder="Share your thoughts or ask a question..."
                       rows={4}
                     ></textarea>
@@ -231,15 +231,15 @@ const MonthlyBudget = () => {
                   <h3 className="font-semibold mb-4">Related Tutorials</h3>
                   <div className="space-y-4">
                     <Link to="/tutorials/emergency-fund" className="block">
-                      <p className="font-medium hover:text-red-500 transition-colors">How to Build an Emergency Fund</p>
+                      <p className="font-medium hover:text-teal-500 transition-colors">How to Build an Emergency Fund</p>
                       <p className="text-sm text-gray-500">15 min read</p>
                     </Link>
                     <Link to="/tutorials/debt-reduction" className="block">
-                      <p className="font-medium hover:text-red-500 transition-colors">Simple Debt Reduction Strategies</p>
+                      <p className="font-medium hover:text-teal-500 transition-colors">Simple Debt Reduction Strategies</p>
                       <p className="text-sm text-gray-500">25 min read</p>
                     </Link>
                     <Link to="/tutorials/save-for-goals" className="block">
-                      <p className="font-medium hover:text-red-500 transition-colors">Saving for Major Financial Goals</p>
+                      <p className="font-medium hover:text-teal-500 transition-colors">Saving for Major Financial Goals</p>
                       <p className="text-sm text-gray-500">18 min read</p>
                     </Link>
                   </div>
@@ -255,16 +255,16 @@ const MonthlyBudget = () => {
                 <Card className="mb-6">
                   <h3 className="font-semibold mb-4">Tools You Might Need</h3>
                   <div className="space-y-3">
-                    <a href="#" className="flex items-center text-sm gap-2 hover:text-red-500 transition-colors">
+                    <a href="#" className="flex items-center text-sm gap-2 hover:text-teal-500 transition-colors">
                       <span>• Budget Template Spreadsheet</span>
                     </a>
-                    <a href="#" className="flex items-center text-sm gap-2 hover:text-red-500 transition-colors">
+                    <a href="#" className="flex items-center text-sm gap-2 hover:text-teal-500 transition-colors">
                       <span>• Expense Tracker App</span>
                     </a>
-                    <a href="#" className="flex items-center text-sm gap-2 hover:text-red-500 transition-colors">
+                    <a href="#" className="flex items-center text-sm gap-2 hover:text-teal-500 transition-colors">
                       <span>• Financial Calculator</span>
                     </a>
-                    <a href="#" className="flex items-center text-sm gap-2 hover:text-red-500 transition-colors">
+                    <a href="#" className="flex items-center text-sm gap-2 hover:text-teal-500 transition-colors">
                       <span>• Debt Snowball Planner</span>
                     </a>
                   </div>

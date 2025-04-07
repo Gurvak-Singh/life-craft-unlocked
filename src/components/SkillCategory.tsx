@@ -15,16 +15,16 @@ const SkillCategory = ({
   description,
   icon: Icon,
   path,
-  color = "bg-red-100",
+  color = "bg-teal-100",
 }: SkillCategoryProps) => {
   return (
     <Link to={path}>
       <Card className="card-hover border overflow-hidden h-full">
         <CardContent className="p-6 flex flex-col items-center text-center">
-          <div className={`${color} p-3 rounded-full mb-4 text-red-600`}>
+          <div className={`${color} p-3 rounded-full mb-4 text-teal-600`}>
             <Icon className="h-6 w-6" />
           </div>
-          <h3 className="text-lg font-medium mb-2 hover:text-red-500 transition-colors">{title}</h3>
+          <h3 className="text-lg font-medium mb-2 hover:text-teal-500 transition-colors">{title}</h3>
           <p className="text-sm text-gray-500">{description}</p>
         </CardContent>
       </Card>

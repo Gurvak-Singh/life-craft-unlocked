@@ -9,7 +9,7 @@ const Hero = () => {
           <div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="block text-gray-900">Increase Skills</span>
-              <span className="block text-red-500">Close Knowledge Gaps</span>
+              <span className="block text-teal-500">Close Knowledge Gaps</span>
               <span className="block text-gray-900">Grow Your Potential</span>
             </h1>
             <p className="text-gray-600 mb-8 text-lg">
@@ -27,7 +27,7 @@ const Hero = () => {
             </div>
           </div>
           <div className="relative">
-            <div className="bg-red-500/10 absolute inset-0 rounded-lg transform translate-x-4 translate-y-4"></div>
+            <div className="bg-teal-500/10 absolute inset-0 rounded-lg transform translate-x-4 translate-y-4"></div>
             <div className="relative z-10 overflow-hidden rounded-lg border-8 border-white shadow-xl">
               <img 
                 src="https://images.unsplash.com/photo-1590650046871-92c887180603?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlcnNvbiUyMGxlYXJuaW5nfGVufDB8fDB8fHww" 

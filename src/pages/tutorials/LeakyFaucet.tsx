@@ -107,7 +107,7 @@ const LeakyFaucet = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Tutorial Header */}
-        <div className="bg-gradient-to-r from-red-500 to-red-600 py-12">
+        <div className="bg-gradient-to-r from-teal-500 to-teal-600 py-12">
           <div className="container">
             <div className="flex flex-col md:flex-row gap-8">
               <div className="flex-1">
@@ -121,7 +121,7 @@ const LeakyFaucet = () => {
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   {tutorial.title}
                 </h1>
-                <p className="text-red-100 mb-6">
+                <p className="text-teal-100 mb-6">
                   {tutorial.description}
                 </p>
                 <div className="flex items-center gap-4 text-white">
@@ -211,7 +211,7 @@ const LeakyFaucet = () => {
                 <div className="space-y-6">
                   <div className="bg-gray-50 p-4 rounded-lg">
                     <textarea 
-                      className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+                      className="w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
                       placeholder="Share your thoughts or ask a question..."
                       rows={4}
                     ></textarea>
@@ -230,15 +230,15 @@ const LeakyFaucet = () => {
                   <h3 className="font-semibold mb-4">Related Tutorials</h3>
                   <div className="space-y-4">
                     <Link to="/tutorials/fix-running-toilet" className="block">
-                      <p className="font-medium hover:text-red-500 transition-colors">How to Fix a Running Toilet</p>
+                      <p className="font-medium hover:text-teal-500 transition-colors">How to Fix a Running Toilet</p>
                       <p className="text-sm text-gray-500">10 min read</p>
                     </Link>
                     <Link to="/tutorials/unclog-drain" className="block">
-                      <p className="font-medium hover:text-red-500 transition-colors">Unclog a Drain Without Chemicals</p>
+                      <p className="font-medium hover:text-teal-500 transition-colors">Unclog a Drain Without Chemicals</p>
                       <p className="text-sm text-gray-500">12 min read</p>
                     </Link>
                     <Link to="/tutorials/shower-head-replacement" className="block">
-                      <p className="font-medium hover:text-red-500 transition-colors">Replace a Shower Head</p>
+                      <p className="font-medium hover:text-teal-500 transition-colors">Replace a Shower Head</p>
                       <p className="text-sm text-gray-500">8 min read</p>
                     </Link>
                   </div>
@@ -254,16 +254,16 @@ const LeakyFaucet = () => {
                 <Card className="mb-6">
                   <h3 className="font-semibold mb-4">Tools You Might Need</h3>
                   <div className="space-y-3">
-                    <a href="#" className="flex items-center text-sm gap-2 hover:text-red-500 transition-colors">
+                    <a href="#" className="flex items-center text-sm gap-2 hover:text-teal-500 transition-colors">
                       <span>• Adjustable Wrench Set</span>
                     </a>
-                    <a href="#" className="flex items-center text-sm gap-2 hover:text-red-500 transition-colors">
+                    <a href="#" className="flex items-center text-sm gap-2 hover:text-teal-500 transition-colors">
                       <span>• Plumbing Tape</span>
                     </a>
-                    <a href="#" className="flex items-center text-sm gap-2 hover:text-red-500 transition-colors">
+                    <a href="#" className="flex items-center text-sm gap-2 hover:text-teal-500 transition-colors">
                       <span>• Faucet Repair Kit</span>
                     </a>
-                    <a href="#" className="flex items-center text-sm gap-2 hover:text-red-500 transition-colors">
+                    <a href="#" className="flex items-center text-sm gap-2 hover:text-teal-500 transition-colors">
                       <span>• Pliers Set</span>
                     </a>
                   </div>

@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -76,7 +75,7 @@ const TutorialCard = ({
           <Badge variant="outline" className={`ml-auto ${difficultyColor}`}>{difficulty}</Badge>
         </div>
         <Link to={tutorialRoutes[id] || `/tutorial/${id}`}>
-          <h3 className="font-medium text-lg mb-2 hover:text-red-500 transition-colors">
+          <h3 className="font-medium text-lg mb-2 hover:text-teal-500 transition-colors">
             {title}
           </h3>
         </Link>
@@ -84,7 +83,7 @@ const TutorialCard = ({
       </CardContent>
       <CardFooter className="pt-2 pb-6 flex gap-2">
         <Button 
-          className="w-full bg-red-500 hover:bg-red-600 text-white"
+          className="w-full bg-teal-500 hover:bg-teal-600 text-white"
           asChild
         >
           <Link to={tutorialRoutes[id] || `/tutorial/${id}`}>

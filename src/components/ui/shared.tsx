@@ -7,7 +7,7 @@ export const PrimaryButton = React.forwardRef<
   HTMLButtonElement,
   React.ComponentPropsWithoutRef<typeof Button> & { href?: string }
 >(({ className, children, href, ...props }, ref) => {
-  const buttonClass = "bg-red-500 hover:bg-red-600 text-white " + (className || "");
+  const buttonClass = "bg-teal-500 hover:bg-teal-600 text-white " + (className || "");
   
   if (href) {
     return (
@@ -30,7 +30,7 @@ export const OutlineButton = React.forwardRef<
   HTMLButtonElement,
   React.ComponentPropsWithoutRef<typeof Button> & { href?: string }
 >(({ className, children, href, ...props }, ref) => {
-  const buttonClass = "border-red-500 text-red-500 hover:bg-red-50 " + (className || "");
+  const buttonClass = "border-teal-500 text-teal-500 hover:bg-teal-50 " + (className || "");
   
   if (href) {
     return (
@@ -84,11 +84,11 @@ export const Badge: React.FC<{
   className?: string;
 }> = ({ children, variant = 'default', className = "" }) => {
   const variantClasses = {
-    default: "bg-red-100 text-red-700",
-    outline: "bg-transparent border border-red-500 text-red-500",
+    default: "bg-teal-100 text-teal-700",
+    outline: "bg-transparent border border-teal-500 text-teal-500",
     success: "bg-green-100 text-green-700",
     warning: "bg-amber-100 text-amber-700",
-    danger: "bg-red-100 text-red-700"
+    danger: "bg-teal-100 text-teal-700"
   };
   
   return (
@@ -120,9 +120,9 @@ export const Logo: React.FC<{
   return (
     <Link 
       to="/" 
-      className={`flex items-center ${sizeClasses[size]} font-bold text-red-500 ${className}`}
+      className={`flex items-center ${sizeClasses[size]} font-bold text-teal-500 ${className}`}
     >
-      <span className={`${iconSizes[size]} rounded-full bg-red-500 flex items-center justify-center text-white text-xs`}>LC</span>
+      <span className={`${iconSizes[size]} rounded-full bg-teal-500 flex items-center justify-center text-white text-xs`}>LC</span>
       <span>LifeCraft</span>
     </Link>
   );
