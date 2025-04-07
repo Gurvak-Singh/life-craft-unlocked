@@ -1,47 +1,43 @@
-
-import { Button } from "@/components/ui/button";
-import { Search } from "lucide-react";
+import { Link } from "react-router-dom";
+import { PrimaryButton } from "@/components/ui/shared";
 
 const Hero = () => {
   return (
-    <div className="py-16 md:py-24 bg-gradient-to-b from-lifecraft-50 to-white relative overflow-hidden">
-      <div className="container relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-6 bg-clip-text text-transparent bg-gradient-to-r from-lifecraft-700 to-lifecraft-500">
-            Master Practical Life Skills
-          </h1>
-          <p className="text-lg text-gray-600 mb-8">
-            Your companion for learning essential real-world skills through step-by-step tutorials,
-            community advice, and personalized learning paths.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <div className="relative flex-grow max-w-md">
-              <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                <Search className="h-5 w-5 text-gray-400" />
-              </div>
-              <input
-                type="search"
-                className="block w-full p-4 pl-10 text-sm border border-gray-200 rounded-lg focus:ring-lifecraft-500 focus:border-lifecraft-500"
-                placeholder="What do you want to learn today?"
+    <div className="relative overflow-hidden bg-white">
+      <div className="container py-16 md:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="block text-gray-900">Increase Skills</span>
+              <span className="block text-red-500">Close Knowledge Gaps</span>
+              <span className="block text-gray-900">Grow Your Potential</span>
+            </h1>
+            <p className="text-gray-600 mb-8 text-lg">
+              LifeCraft is created for busy people who want to develop life skills. We 
+              provide practical tutorials and guides that help you solve common problems, 
+              save money, and gain confidence.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <PrimaryButton 
+                className="px-8 py-6 h-auto text-lg"
+                href="/skills"
+              >
+                Get Started
+              </PrimaryButton>
+            </div>
+          </div>
+          <div className="relative">
+            <div className="bg-red-500/10 absolute inset-0 rounded-lg transform translate-x-4 translate-y-4"></div>
+            <div className="relative z-10 overflow-hidden rounded-lg border-8 border-white shadow-xl">
+              <img 
+                src="https://images.unsplash.com/photo-1590650046871-92c887180603?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlcnNvbiUyMGxlYXJuaW5nfGVufDB8fDB8fHww" 
+                alt="Person learning new skills"
+                className="w-full h-full object-cover aspect-[4/3]"
               />
             </div>
-            <Button className="px-8 py-4 h-auto bg-lifecraft-500 hover:bg-lifecraft-600 text-white">
-              Explore Skills
-            </Button>
-          </div>
-          <div className="mt-6 flex flex-wrap justify-center gap-2 text-sm">
-            <span className="text-gray-500">Popular:</span>
-            <Button variant="link" className="p-0 h-auto text-lifecraft-600">Fix a leaky faucet</Button>
-            <Button variant="link" className="p-0 h-auto text-lifecraft-600">Budget planning</Button>
-            <Button variant="link" className="p-0 h-auto text-lifecraft-600">Change a tire</Button>
-            <Button variant="link" className="p-0 h-auto text-lifecraft-600">Cook pasta</Button>
           </div>
         </div>
       </div>
-      
-      {/* Decorative elements */}
-      <div className="absolute top-1/4 right-0 w-64 h-64 bg-lifecraft-100 rounded-full blur-3xl opacity-30 -z-10"></div>
-      <div className="absolute bottom-1/3 left-0 w-80 h-80 bg-lifecraft-accent-100 rounded-full blur-3xl opacity-30 -z-10"></div>
     </div>
   );
 };

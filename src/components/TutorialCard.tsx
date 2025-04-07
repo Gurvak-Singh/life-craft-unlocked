@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -32,6 +31,14 @@ const TutorialCard = ({
     Advanced: "bg-amber-100 text-amber-700",
   }[difficulty];
 
+  // Map tutorial IDs to their respective routes
+  const tutorialRoutes: Record<string, string> = {
+    "1": "/tutorials/leaky-faucet",
+    "2": "/tutorials/monthly-budget",
+    "3": "/tutorials/car-oil-change",
+    "4": "/tutorials/cooking-techniques"
+  };
+
   return (
     <Card className="overflow-hidden card-hover h-full flex flex-col">
       <div className="relative h-48 overflow-hidden">
@@ -59,16 +66,21 @@ const TutorialCard = ({
           </span>
           <Badge variant="outline" className={`ml-auto ${difficultyColor}`}>{difficulty}</Badge>
         </div>
-        <Link to={`/tutorial/${id}`}>
-          <h3 className="font-medium text-lg mb-2 hover:text-lifecraft-500 transition-colors">
+        <Link to={tutorialRoutes[id] || `/tutorial/${id}`}>
+          <h3 className="font-medium text-lg mb-2 hover:text-red-500 transition-colors">
             {title}
           </h3>
         </Link>
         <p className="text-sm text-gray-500 line-clamp-3">{description}</p>
       </CardContent>
       <CardFooter className="pt-2 pb-6 flex gap-2">
-        <Button className="w-full bg-lifecraft-500 hover:bg-lifecraft-600">
-          Start Learning
+        <Button 
+          className="w-full bg-red-500 hover:bg-red-600 text-white"
+          asChild
+        >
+          <Link to={tutorialRoutes[id] || `/tutorial/${id}`}>
+            Start Learning
+          </Link>
         </Button>
         <Button variant="outline" size="icon" className="flex-shrink-0">
           <Bookmark className="h-4 w-4" />
