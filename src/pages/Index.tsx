@@ -18,7 +18,7 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1638865597191-f978146089d5?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bGVha3klMjBmYXVjZXR8ZW58MHx8MHx8fDA%3D",
       duration: "15 min",
       author: "Mike R.",
-      difficulty: "Beginner",
+      difficulty: "Beginner" as const,
       category: "Home Repair"
     },
     {
@@ -28,7 +28,7 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YnVkZ2V0fGVufDB8fDB8fHww",
       duration: "20 min",
       author: "Sarah L.",
-      difficulty: "Beginner",
+      difficulty: "Beginner" as const,
       category: "Budgeting"
     },
     {
@@ -38,7 +38,7 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2FyJTIwb2lsJTIwY2hhbmdlfGVufDB8fDB8fHww",
       duration: "30 min",
       author: "Carlos G.",
-      difficulty: "Intermediate",
+      difficulty: "Intermediate" as const,
       category: "Car Maintenance"
     },
     {
@@ -48,7 +48,7 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y29va2luZ3xlbnwwfHwwfHx8MA%3D%3D",
       duration: "45 min",
       author: "Emma T.",
-      difficulty: "Beginner",
+      difficulty: "Beginner" as const,
       category: "Cooking"
     }
   ];
