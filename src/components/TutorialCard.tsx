@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -39,24 +40,20 @@ const TutorialCard = ({
     "4": "/tutorials/cooking-techniques"
   };
 
-  // Handle both local and external images
-  const imageUrl = image.startsWith('http') ? image : image;
-
   return (
     <Card className="overflow-hidden card-hover h-full flex flex-col">
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-48 overflow-hidden bg-gray-100">
         <img
-          src={imageUrl}
+          src={image}
           alt={title}
           className="w-full h-full object-cover transition-transform hover:scale-105 duration-300"
           onError={(e) => {
-            // Fallback to placeholder if image fails to load
             const target = e.target as HTMLImageElement;
             target.src = "/placeholder.svg";
           }}
         />
         <Badge 
-          className="absolute top-3 left-3" 
+          className="absolute top-3 left-3 shadow-sm" 
           variant="secondary"
         >
           {category}

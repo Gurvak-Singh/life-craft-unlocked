@@ -14,7 +14,7 @@ const Index = () => {
       id: "1",
       title: "How to Fix a Leaky Faucet",
       description: "Learn how to identify and fix common faucet leaks without calling a plumber. Save money and gain confidence in basic home repairs.",
-      image: "https://images.unsplash.com/photo-1585704032915-c3400ee75147?w=800&auto=format&fit=crop&q=80&ixlib=rb-4.0.3",
+      image: "/images/leaky-faucet-repair.jpg", 
       duration: "15 min",
       author: "Mike R.",
       difficulty: "Beginner" as const,
