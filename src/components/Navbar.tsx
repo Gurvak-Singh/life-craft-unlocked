@@ -4,11 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Search, Menu, X, User } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { PrimaryButton, Logo } from "@/components/ui/shared";
+import { useThemeColors } from "@/lib/theme-utils";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const themeColors = useThemeColors();
 
   // Handle scroll effect
   useEffect(() => {
@@ -47,7 +49,7 @@ const Navbar = () => {
             size="icon"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
-            className="text-gray-700 hover:bg-teal-50"
+            className={`text-gray-700 ${themeColors.hoverBgColor}`}
           >
             {isMenuOpen ? (
               <X className="h-6 w-6" />
@@ -59,17 +61,19 @@ const Navbar = () => {
         
         {/* Desktop navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <NavLink to="/" label="Home" active={location.pathname === '/'} />
-          <NavLink to="/skills" label="Skills" active={location.pathname === '/skills'} />
-          <NavLink to="/community" label="Community" active={location.pathname === '/community'} />
-          <NavLink to="/tracks" label="Learning Tracks" active={location.pathname === '/tracks'} />
+          <NavLink to="/" label="Home" active={location.pathname === '/'} themeColors={themeColors} />
+          <NavLink to="/skills" label="Skills" active={location.pathname === '/skills' || location.pathname.startsWith('/skills/')} themeColors={themeColors} />
+          <NavLink to="/community" label="Community" active={location.pathname === '/community'} themeColors={themeColors} />
+          <NavLink to="/tracks" label="Learning Tracks" active={location.pathname === '/tracks'} themeColors={themeColors} />
         </nav>
         
         <div className="hidden md:flex items-center gap-4">
-          <Button variant="ghost" size="icon" className="text-gray-700 hover:bg-teal-50">
+          <Button variant="ghost" size="icon" className={`text-gray-700 ${themeColors.hoverBgColor}`}>
             <Search className="h-5 w-5" />
           </Button>
-          <PrimaryButton className="transition-transform hover:scale-105">
+          <PrimaryButton 
+            className={`transition-transform hover:scale-105 ${location.pathname.startsWith('/skills/') ? themeColors.accentColor : ''}`}
+          >
             <User className="mr-2 h-4 w-4" />
             Sign In
           </PrimaryButton>
@@ -80,13 +84,15 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="fixed inset-0 top-16 z-50 bg-background md:hidden animate-fade-in">
           <nav className="container flex flex-col gap-2 p-6">
-            <MobileNavLink to="/" label="Home" />
-            <MobileNavLink to="/skills" label="Skills" />
-            <MobileNavLink to="/community" label="Community" />
-            <MobileNavLink to="/tracks" label="Learning Tracks" />
+            <MobileNavLink to="/" label="Home" themeColors={themeColors} />
+            <MobileNavLink to="/skills" label="Skills" themeColors={themeColors} />
+            <MobileNavLink to="/community" label="Community" themeColors={themeColors} />
+            <MobileNavLink to="/tracks" label="Learning Tracks" themeColors={themeColors} />
             
             <div className="mt-6">
-              <PrimaryButton className="w-full flex justify-center">
+              <PrimaryButton 
+                className={`w-full flex justify-center ${location.pathname.startsWith('/skills/') ? themeColors.accentColor : ''}`}
+              >
                 <User className="mr-2 h-4 w-4" />
                 Sign In
               </PrimaryButton>
@@ -99,18 +105,27 @@ const Navbar = () => {
 };
 
 // Helper components for navigation links
-const NavLink = ({ to, label, active }: { to: string; label: string; active: boolean }) => (
+const NavLink = ({ to, label, active, themeColors }: { 
+  to: string; 
+  label: string; 
+  active: boolean;
+  themeColors: any;
+}) => (
   <Link 
     to={to} 
-    className={`relative font-medium transition-colors hover:text-teal-500 
-      ${active ? 'text-teal-500 after:absolute after:bottom-[-18px] after:left-0 after:h-0.5 after:w-full after:bg-teal-500' : 'text-gray-700'}`}
+    className={`relative font-medium transition-colors hover:${themeColors.textColor} 
+      ${active ? `${themeColors.textColor} after:absolute after:bottom-[-18px] after:left-0 after:h-0.5 after:w-full after:${themeColors.borderColor.replace('border-t-', 'bg-')}` : 'text-gray-700'}`}
   >
     {label}
   </Link>
 );
 
-const MobileNavLink = ({ to, label }: { to: string; label: string }) => (
-  <Link to={to} className="flex items-center py-3 px-4 text-lg font-medium hover:bg-teal-50 rounded-lg transition-colors hover:text-teal-500">
+const MobileNavLink = ({ to, label, themeColors }: { 
+  to: string; 
+  label: string;
+  themeColors: any;
+}) => (
+  <Link to={to} className={`flex items-center py-3 px-4 text-lg font-medium ${themeColors.hoverBgColor} rounded-lg transition-colors hover:${themeColors.textColor}`}>
     {label}
   </Link>
 );

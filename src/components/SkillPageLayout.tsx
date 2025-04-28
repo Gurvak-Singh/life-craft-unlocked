@@ -25,6 +25,9 @@ const SkillPageLayout = ({
   borderColor = "border-t-teal-500",
   accentColor = "bg-teal-500 hover:bg-teal-600"
 }: SkillPageLayoutProps) => {
+  // Extract color for button hover state
+  const hoverBgColor = `hover:bg-${bgColor.split('-')[1]}-50`;
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
