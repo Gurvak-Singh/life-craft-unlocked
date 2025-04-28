@@ -61,7 +61,7 @@ const TutorialCard = ({
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
       <CardContent className="pt-6 flex-grow">
-        <div className="flex items-center gap-2 text-sm text-gray-500 mb-2 flex-wrap">
+        <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
           <span className="flex items-center gap-1">
             <Clock className="h-3 w-3" />
             {duration}
@@ -70,10 +70,10 @@ const TutorialCard = ({
             <User className="h-3 w-3" />
             {author}
           </span>
-          <span className="ml-auto">
-            <Badge variant="outline" className={`${difficultyColor}`}>{difficulty}</Badge>
-          </span>
         </div>
+        
+        <Badge variant="outline" className={`${difficultyColor} mb-3`}>{difficulty}</Badge>
+        
         <Link to={tutorialRoutes[id] || `/tutorial/${id}`}>
           <h3 className="font-medium text-lg mb-2 transition-colors hover:text-teal-500">
             {title}
