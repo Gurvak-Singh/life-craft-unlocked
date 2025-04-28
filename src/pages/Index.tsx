@@ -161,7 +161,7 @@ const Index = () => {
         <Hero />
         
         {/* Services Section */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-gradient-to-b from-white to-gray-50">
           <div className="container">
             <SectionTitle 
               title="Skill Development and Learning for Everyone"
@@ -169,7 +169,7 @@ const Index = () => {
             />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {serviceFeatures.map((feature, index) => (
-                <div key={index} className="feature-card card-hover">
+                <div key={index} className="feature-card card-bg-hover">
                   <div className={`feature-icon ${feature.color}`}>
                     <span className="text-2xl">{feature.icon}</span>
                   </div>
@@ -185,9 +185,11 @@ const Index = () => {
         <section className="py-16">
           <div className="container">
             <div className="flex justify-between items-center mb-8">
-              <h2 className="text-3xl font-bold">Featured Tutorials</h2>
-              <OutlineButton href="/tutorials">
-                View All <ArrowRight className="ml-1 h-4 w-4" />
+              <h2 className="text-3xl font-bold">
+                <span className="animate-gradient-text">Featured Tutorials</span>
+              </h2>
+              <OutlineButton href="/tutorials" className="group">
+                View All <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </OutlineButton>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -199,7 +201,7 @@ const Index = () => {
         </section>
         
         {/* Testimonials Section */}
-        <section className="py-16">
+        <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
           <div className="container">
             <SectionTitle 
               title="What Our Users Say"
@@ -207,12 +209,12 @@ const Index = () => {
             />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {testimonials.map((testimonial) => (
-                <Card key={testimonial.id} className="h-full">
+                <Card key={testimonial.id} className="h-full hover:shadow-lg transition-all duration-300">
                   <div className="flex items-center gap-4 mb-4">
                     <img 
                       src={testimonial.avatar} 
                       alt={testimonial.name} 
-                      className="w-12 h-12 rounded-full object-cover"
+                      className="w-12 h-12 rounded-full object-cover border-2 border-white shadow"
                     />
                     <div>
                       <h3 className="font-semibold">{testimonial.name}</h3>
@@ -232,7 +234,7 @@ const Index = () => {
               ))}
             </div>
             <div className="text-center mt-10">
-              <OutlineButton>
+              <OutlineButton className="hover:bg-teal-50 transition-colors">
                 View All Testimonials
               </OutlineButton>
             </div>
@@ -257,7 +259,7 @@ const Index = () => {
         {/* CTA Section */}
         <section className="py-16">
           <div className="container">
-            <div className="bg-teal-500 rounded-2xl overflow-hidden">
+            <div className="bg-gradient-to-r from-teal-500 to-teal-600 rounded-2xl overflow-hidden shadow-xl">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="p-8 md:p-12 flex flex-col justify-center">
                   <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -269,25 +271,26 @@ const Index = () => {
                   </p>
                   <div className="space-y-4 mb-8">
                     <div className="flex items-center gap-3">
-                      <Award className="h-6 w-6 text-white" />
+                      <Award className="h-6 w-6 text-teal-200" />
                       <span className="text-white">First-time homeowner essentials</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Award className="h-6 w-6 text-white" />
+                      <Award className="h-6 w-6 text-teal-200" />
                       <span className="text-white">Financial independence basics</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <Award className="h-6 w-6 text-white" />
+                      <Award className="h-6 w-6 text-teal-200" />
                       <span className="text-white">Learn to cook from scratch</span>
                     </div>
                   </div>
                   <div>
-                    <PrimaryButton className="bg-white text-teal-500 hover:bg-gray-100">
+                    <PrimaryButton className="bg-white text-teal-500 hover:bg-gray-100 hover:text-teal-600 shadow-lg transition-transform hover:scale-105">
                       Explore Learning Tracks
                     </PrimaryButton>
                   </div>
                 </div>
                 <div className="hidden md:block relative min-h-[400px]">
+                  <div className="absolute inset-0 bg-gradient-to-l from-transparent to-teal-600/20 z-10"></div>
                   <img 
                     src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fG1hbiUyMGxlYXJuaW5nfGVufDB8fDB8fHww" 
                     alt="Learning Tracks"
@@ -299,38 +302,38 @@ const Index = () => {
           </div>
         </section>
         
-        {/* Community section */}
-        <section className="py-16 bg-gray-50">
+        {/* Community section - enhanced visual design */}
+        <section className="py-16 bg-gradient-to-b from-white to-gray-50">
           <div className="container">
             <SectionTitle 
               title="Join Our Community"
               subtitle="Connect with others, share your experiences, and get advice from experts. Our community is here to support your learning journey."
             />
             <div className="flex flex-col md:flex-row gap-6">
-              <Card className="flex-1">
-                <h3 className="text-xl font-semibold mb-4">Ask Questions</h3>
+              <Card className="flex-1 hover:shadow-lg transition-all duration-300 group">
+                <h3 className="text-xl font-semibold mb-4 group-hover:text-teal-500 transition-colors">Ask Questions</h3>
                 <p className="text-gray-600 mb-6">
                   Stuck on a problem? Get answers from our community of experts and fellow learners.
                 </p>
-                <PrimaryButton href="/community/questions">
+                <PrimaryButton href="/community/questions" className="transition-transform group-hover:scale-105">
                   Browse Questions
                 </PrimaryButton>
               </Card>
-              <Card className="flex-1">
-                <h3 className="text-xl font-semibold mb-4">Share Your Knowledge</h3>
+              <Card className="flex-1 hover:shadow-lg transition-all duration-300 group">
+                <h3 className="text-xl font-semibold mb-4 group-hover:text-teal-500 transition-colors">Share Your Knowledge</h3>
                 <p className="text-gray-600 mb-6">
                   Help others by sharing your expertise and experiences. Everyone has something valuable to teach.
                 </p>
-                <PrimaryButton href="/community/contribute">
+                <PrimaryButton href="/community/contribute" className="transition-transform group-hover:scale-105">
                   Start Contributing
                 </PrimaryButton>
               </Card>
-              <Card className="flex-1">
-                <h3 className="text-xl font-semibold mb-4">Local Workshops</h3>
+              <Card className="flex-1 hover:shadow-lg transition-all duration-300 group">
+                <h3 className="text-xl font-semibold mb-4 group-hover:text-teal-500 transition-colors">Local Workshops</h3>
                 <p className="text-gray-600 mb-6">
                   Find in-person learning opportunities near you. Connect with local experts and resources.
                 </p>
-                <PrimaryButton href="/community/local">
+                <PrimaryButton href="/community/local" className="transition-transform group-hover:scale-105">
                   Find Local Events
                 </PrimaryButton>
               </Card>
@@ -347,28 +350,28 @@ const Index = () => {
             />
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-              <Card>
+              <Card className="hover:shadow-md transition-all duration-300">
                 <h3 className="text-xl font-semibold mb-3 text-teal-500">Is LifeCraft free to use?</h3>
                 <p className="text-gray-700">
                   Yes! Most of our tutorials and resources are completely free. We also offer premium content and personalized coaching for those who want to take their learning to the next level.
                 </p>
               </Card>
               
-              <Card>
+              <Card className="hover:shadow-md transition-all duration-300">
                 <h3 className="text-xl font-semibold mb-3 text-teal-500">How do I track my progress?</h3>
                 <p className="text-gray-700">
                   Create a free account to track completed tutorials, save favorites, and follow your learning path. Your dashboard will show your progress and suggest next steps.
                 </p>
               </Card>
               
-              <Card>
+              <Card className="hover:shadow-md transition-all duration-300">
                 <h3 className="text-xl font-semibold mb-3 text-teal-500">Can I contribute my own tutorials?</h3>
                 <p className="text-gray-700">
                   Absolutely! We welcome community contributions. Visit our "Contribute" page to learn how you can share your knowledge and help others learn practical skills.
                 </p>
               </Card>
               
-              <Card>
+              <Card className="hover:shadow-md transition-all duration-300">
                 <h3 className="text-xl font-semibold mb-3 text-teal-500">Are the tutorials suitable for beginners?</h3>
                 <p className="text-gray-700">
                   Yes, our tutorials are designed for all skill levels. We clearly mark the difficulty level of each tutorial and provide extra guidance for beginners.
@@ -377,7 +380,7 @@ const Index = () => {
             </div>
             
             <div className="text-center mt-10">
-              <OutlineButton href="/faq">
+              <OutlineButton href="/faq" className="hover:bg-teal-50 transition-colors">
                 View All FAQs
               </OutlineButton>
             </div>

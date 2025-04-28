@@ -1,14 +1,40 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Search, Menu, X, User } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { PrimaryButton, Logo } from "@/components/ui/shared";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+  
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location]);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur">
+    <header className={`sticky top-0 z-40 w-full border-b backdrop-blur transition-all duration-300 ${
+      isScrolled ? 'bg-background/95 shadow-sm' : 'bg-background/70'
+    }`}>
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Logo size="lg" />
@@ -21,6 +47,7 @@ const Navbar = () => {
             size="icon"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
+            className="text-gray-700 hover:bg-teal-50"
           >
             {isMenuOpen ? (
               <X className="h-6 w-6" />
@@ -32,17 +59,17 @@ const Navbar = () => {
         
         {/* Desktop navigation */}
         <nav className="hidden md:flex items-center gap-6">
-          <Link to="/" className="font-medium hover:text-teal-500 transition-colors">Home</Link>
-          <Link to="/skills" className="font-medium hover:text-teal-500 transition-colors">Skills</Link>
-          <Link to="/community" className="font-medium hover:text-teal-500 transition-colors">Community</Link>
-          <Link to="/tracks" className="font-medium hover:text-teal-500 transition-colors">Learning Tracks</Link>
+          <NavLink to="/" label="Home" active={location.pathname === '/'} />
+          <NavLink to="/skills" label="Skills" active={location.pathname === '/skills'} />
+          <NavLink to="/community" label="Community" active={location.pathname === '/community'} />
+          <NavLink to="/tracks" label="Learning Tracks" active={location.pathname === '/tracks'} />
         </nav>
         
         <div className="hidden md:flex items-center gap-4">
-          <Button variant="ghost" size="icon">
+          <Button variant="ghost" size="icon" className="text-gray-700 hover:bg-teal-50">
             <Search className="h-5 w-5" />
           </Button>
-          <PrimaryButton>
+          <PrimaryButton className="transition-transform hover:scale-105">
             <User className="mr-2 h-4 w-4" />
             Sign In
           </PrimaryButton>
@@ -52,21 +79,14 @@ const Navbar = () => {
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className="fixed inset-0 top-16 z-50 bg-background md:hidden animate-fade-in">
-          <nav className="container flex flex-col gap-6 p-6">
-            <Link to="/" className="flex items-center justify-between py-3 font-medium hover:text-teal-500 transition-colors border-b">
-              Home
-            </Link>
-            <Link to="/skills" className="flex items-center justify-between py-3 font-medium hover:text-teal-500 transition-colors border-b">
-              Skills
-            </Link>
-            <Link to="/community" className="flex items-center justify-between py-3 font-medium hover:text-teal-500 transition-colors border-b">
-              Community
-            </Link>
-            <Link to="/tracks" className="flex items-center justify-between py-3 font-medium hover:text-teal-500 transition-colors border-b">
-              Learning Tracks
-            </Link>
+          <nav className="container flex flex-col gap-2 p-6">
+            <MobileNavLink to="/" label="Home" />
+            <MobileNavLink to="/skills" label="Skills" />
+            <MobileNavLink to="/community" label="Community" />
+            <MobileNavLink to="/tracks" label="Learning Tracks" />
+            
             <div className="mt-6">
-              <PrimaryButton className="w-full">
+              <PrimaryButton className="w-full flex justify-center">
                 <User className="mr-2 h-4 w-4" />
                 Sign In
               </PrimaryButton>
@@ -77,5 +97,22 @@ const Navbar = () => {
     </header>
   );
 };
+
+// Helper components for navigation links
+const NavLink = ({ to, label, active }: { to: string; label: string; active: boolean }) => (
+  <Link 
+    to={to} 
+    className={`relative font-medium transition-colors hover:text-teal-500 
+      ${active ? 'text-teal-500 after:absolute after:bottom-[-18px] after:left-0 after:h-0.5 after:w-full after:bg-teal-500' : 'text-gray-700'}`}
+  >
+    {label}
+  </Link>
+);
+
+const MobileNavLink = ({ to, label }: { to: string; label: string }) => (
+  <Link to={to} className="flex items-center py-3 px-4 text-lg font-medium hover:bg-teal-50 rounded-lg transition-colors hover:text-teal-500">
+    {label}
+  </Link>
+);
 
 export default Navbar;

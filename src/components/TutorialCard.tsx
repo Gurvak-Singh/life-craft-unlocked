@@ -41,23 +41,24 @@ const TutorialCard = ({
   };
 
   return (
-    <Card className="overflow-hidden card-hover h-full flex flex-col">
+    <Card className="overflow-hidden h-full flex flex-col group transform transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <div className="relative h-48 overflow-hidden bg-gray-100">
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover transition-transform hover:scale-105 duration-300"
+          className="w-full h-full object-cover transform transition-transform group-hover:scale-105 duration-500"
           onError={(e) => {
             const target = e.target as HTMLImageElement;
             target.src = "/placeholder.svg";
           }}
         />
         <Badge 
-          className="absolute top-3 left-3 shadow-sm" 
+          className="absolute top-3 left-3 shadow-md" 
           variant="secondary"
         >
           {category}
         </Badge>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
       <CardContent className="pt-6 flex-grow">
         <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
@@ -72,7 +73,7 @@ const TutorialCard = ({
           <Badge variant="outline" className={`ml-auto ${difficultyColor}`}>{difficulty}</Badge>
         </div>
         <Link to={tutorialRoutes[id] || `/tutorial/${id}`}>
-          <h3 className="font-medium text-lg mb-2 hover:text-teal-500 transition-colors">
+          <h3 className="font-medium text-lg mb-2 transition-colors hover:text-teal-500">
             {title}
           </h3>
         </Link>
@@ -80,14 +81,14 @@ const TutorialCard = ({
       </CardContent>
       <CardFooter className="pt-2 pb-6 flex gap-2">
         <Button 
-          className="w-full bg-teal-500 hover:bg-teal-600 text-white"
+          className="w-full bg-teal-500 hover:bg-teal-600 text-white transition-all duration-300"
           asChild
         >
           <Link to={tutorialRoutes[id] || `/tutorial/${id}`}>
             Start Learning
           </Link>
         </Button>
-        <Button variant="outline" size="icon" className="flex-shrink-0">
+        <Button variant="outline" size="icon" className="flex-shrink-0 hover:bg-teal-50 transition-colors">
           <Bookmark className="h-4 w-4" />
         </Button>
       </CardFooter>
