@@ -1,7 +1,7 @@
 
 import SkillPageLayout from "@/components/SkillPageLayout";
 import { Card, CardContent } from "@/components/ui/card";
-import { Car, Tool, Wrench } from "lucide-react";
+import { Car, Filter, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,7 @@ const CarMaintenance = () => {
     {
       title: "Check and Replace Air Filter",
       description: "How to inspect and replace a dirty engine air filter",
-      icon: Tool,
+      icon: Filter,
       path: "/skills/car-maintenance/air-filter",
     },
     {

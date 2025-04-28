@@ -1,7 +1,7 @@
 
 import SkillPageLayout from "@/components/SkillPageLayout";
 import { Card, CardContent } from "@/components/ui/card";
-import { Wrench, Home, Tool } from "lucide-react";
+import { Wrench, Home, Hammer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -16,7 +16,7 @@ const DIY = () => {
     {
       title: "Furniture Restoration",
       description: "Learn how to restore and refinish wooden furniture",
-      icon: Tool,
+      icon: Hammer,
       path: "/skills/diy/furniture-restoration",
     },
     {
