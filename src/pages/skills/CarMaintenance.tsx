@@ -27,11 +27,19 @@ const CarMaintenance = () => {
     },
   ];
 
+  // Theme colors for Car Maintenance
+  const themeColors = {
+    bgColor: "from-blue-500 to-blue-600",
+    iconColor: "bg-blue-100 text-blue-600",
+    borderColor: "border-t-blue-500",
+    accentColor: "bg-blue-500 hover:bg-blue-600"
+  };
+
   return (
     <SkillPageLayout 
       title="Car Maintenance Skills" 
       description="Learn basic to advanced car maintenance skills that will extend your vehicle's life, improve performance, and save you money on mechanic visits."
-      bgColor="from-blue-500 to-blue-600"
+      {...themeColors}
     >
       {/* Popular Tutorials */}
       <section className="py-16">
@@ -41,15 +49,15 @@ const CarMaintenance = () => {
             {tutorials.map((tutorial) => {
               const Icon = tutorial.icon;
               return (
-                <Card key={tutorial.title} className="overflow-hidden h-full transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg border-t-4 border-t-blue-500">
+                <Card key={tutorial.title} className={`overflow-hidden h-full transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg border-t-4 ${themeColors.borderColor}`}>
                   <CardContent className="p-6">
-                    <div className="bg-blue-100 p-3 rounded-full mb-4 text-blue-600 shadow-md w-12 h-12 flex items-center justify-center">
+                    <div className={`${themeColors.iconColor} p-3 rounded-full mb-4 shadow-md w-12 h-12 flex items-center justify-center`}>
                       <Icon className="h-6 w-6" />
                     </div>
                     <h3 className="text-lg font-medium mb-2">{tutorial.title}</h3>
                     <p className="text-gray-600 mb-4">{tutorial.description}</p>
                     <Link to={tutorial.path}>
-                      <Button className="w-full bg-blue-500 hover:bg-blue-600">
+                      <Button className={`w-full ${themeColors.accentColor}`}>
                         Start Learning
                       </Button>
                     </Link>
@@ -71,15 +79,15 @@ const CarMaintenance = () => {
                 <h3 className="text-xl font-medium mb-4">Every 3-5,000 Miles</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
-                    <span className="bg-blue-100 p-1 rounded-full text-blue-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Change engine oil and filter</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-blue-100 p-1 rounded-full text-blue-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Check tire pressure and tread</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-blue-100 p-1 rounded-full text-blue-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Inspect all fluid levels</span>
                   </li>
                 </ul>
@@ -90,15 +98,15 @@ const CarMaintenance = () => {
                 <h3 className="text-xl font-medium mb-4">Every 15-30,000 Miles</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
-                    <span className="bg-blue-100 p-1 rounded-full text-blue-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Replace air filter</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-blue-100 p-1 rounded-full text-blue-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Rotate tires</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-blue-100 p-1 rounded-full text-blue-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Inspect brake pads and rotors</span>
                   </li>
                 </ul>

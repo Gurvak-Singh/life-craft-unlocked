@@ -27,10 +27,19 @@ const HomeRepair = () => {
     },
   ];
 
+  // Theme colors for Home Repair
+  const themeColors = {
+    bgColor: "from-teal-500 to-teal-600",
+    iconColor: "bg-teal-100 text-teal-600",
+    borderColor: "border-t-teal-500",
+    accentColor: "bg-teal-500 hover:bg-teal-600"
+  };
+
   return (
     <SkillPageLayout 
       title="Home Repair Skills" 
       description="Learn practical skills to maintain and fix common issues around your home, saving money and time on professional repairs."
+      {...themeColors}
     >
       {/* Popular Tutorials */}
       <section className="py-16">
@@ -40,15 +49,15 @@ const HomeRepair = () => {
             {tutorials.map((tutorial) => {
               const Icon = tutorial.icon;
               return (
-                <Card key={tutorial.title} className="overflow-hidden h-full transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg border-t-4 border-t-teal-500">
+                <Card key={tutorial.title} className={`overflow-hidden h-full transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg border-t-4 ${themeColors.borderColor}`}>
                   <CardContent className="p-6">
-                    <div className="bg-teal-100 p-3 rounded-full mb-4 text-teal-600 shadow-md w-12 h-12 flex items-center justify-center">
+                    <div className={`${themeColors.iconColor} p-3 rounded-full mb-4 shadow-md w-12 h-12 flex items-center justify-center`}>
                       <Icon className="h-6 w-6" />
                     </div>
                     <h3 className="text-lg font-medium mb-2">{tutorial.title}</h3>
                     <p className="text-gray-600 mb-4">{tutorial.description}</p>
                     <Link to={tutorial.path}>
-                      <Button className="w-full bg-teal-500 hover:bg-teal-600">
+                      <Button className={`w-full ${themeColors.accentColor}`}>
                         Start Learning
                       </Button>
                     </Link>
@@ -70,23 +79,23 @@ const HomeRepair = () => {
                 <h3 className="text-xl font-medium mb-4">For Beginners</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
-                    <span className="bg-teal-100 p-1 rounded-full text-teal-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Screwdriver set (flathead and Phillips)</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-teal-100 p-1 rounded-full text-teal-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Claw hammer</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-teal-100 p-1 rounded-full text-teal-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Adjustable wrench</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-teal-100 p-1 rounded-full text-teal-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Pliers (needle-nose and slip-joint)</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-teal-100 p-1 rounded-full text-teal-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Tape measure</span>
                   </li>
                 </ul>
@@ -97,23 +106,23 @@ const HomeRepair = () => {
                 <h3 className="text-xl font-medium mb-4">Advanced Tools</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
-                    <span className="bg-teal-100 p-1 rounded-full text-teal-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Power drill with bit set</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-teal-100 p-1 rounded-full text-teal-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Stud finder</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-teal-100 p-1 rounded-full text-teal-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Level</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-teal-100 p-1 rounded-full text-teal-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Pipe wrench</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-teal-100 p-1 rounded-full text-teal-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Utility knife</span>
                   </li>
                 </ul>

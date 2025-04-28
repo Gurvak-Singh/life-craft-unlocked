@@ -20,14 +20,17 @@ const SkillCategory = ({
   color = "bg-teal-100",
   borderColor = "border-t-teal-500",
 }: SkillCategoryProps) => {
+  // Get theme color for text hover
+  const colorClass = borderColor.replace("border-t-", "text-");
+
   return (
     <Link to={path}>
       <Card className={`overflow-hidden h-full transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg border-t-4 ${borderColor} group`}>
         <CardContent className="p-6 flex flex-col items-center text-center">
-          <div className={`${color} p-3 rounded-full mb-4 text-teal-600 shadow-md transition-transform group-hover:scale-110 duration-300`}>
+          <div className={`${color} p-3 rounded-full mb-4 shadow-md transition-transform group-hover:scale-110 duration-300`}>
             <Icon className="h-6 w-6" />
           </div>
-          <h3 className="text-lg font-medium mb-2 group-hover:text-teal-500 transition-colors">{title}</h3>
+          <h3 className={`text-lg font-medium mb-2 group-hover:${colorClass} transition-colors`}>{title}</h3>
           <p className="text-sm text-gray-500">{description}</p>
         </CardContent>
       </Card>

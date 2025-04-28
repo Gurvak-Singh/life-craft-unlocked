@@ -1,3 +1,4 @@
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SkillCategory from "@/components/SkillCategory";
@@ -6,49 +7,55 @@ import { Home, Wrench, Car, Calculator, Monitor, Utensils, ArrowRight } from "lu
 import { Link } from "react-router-dom";
 
 const Skills = () => {
-  // Skill categories
+  // Skill categories with themed colors
   const skillCategories = [
     {
       title: "Home Repair",
       description: "Learn to fix and maintain your living space",
       icon: Home,
       path: "/skills/home-repair",
-      color: "bg-teal-100"
+      color: "bg-teal-100 text-teal-600",
+      borderColor: "border-t-teal-500"
     },
     {
       title: "Car Maintenance",
       description: "Keep your vehicle running smoothly",
       icon: Car,
       path: "/skills/car-maintenance",
-      color: "bg-teal-100"
+      color: "bg-blue-100 text-blue-600",
+      borderColor: "border-t-blue-500"
     },
     {
       title: "Budgeting",
       description: "Master your personal finances",
       icon: Calculator,
       path: "/skills/budgeting",
-      color: "bg-teal-100"
+      color: "bg-green-100 text-green-600",
+      borderColor: "border-t-green-500"
     },
     {
       title: "Digital Literacy",
       description: "Navigate the digital world with confidence",
       icon: Monitor,
       path: "/skills/digital",
-      color: "bg-teal-100"
+      color: "bg-purple-100 text-purple-600",
+      borderColor: "border-t-purple-500"
     },
     {
       title: "Cooking",
       description: "Cook delicious and healthy meals",
       icon: Utensils,
       path: "/skills/cooking",
-      color: "bg-teal-100"
+      color: "bg-amber-100 text-amber-600",
+      borderColor: "border-t-amber-500"
     },
     {
       title: "DIY Projects",
       description: "Create and build with your own hands",
       icon: Wrench,
       path: "/skills/diy",
-      color: "bg-teal-100"
+      color: "bg-rose-100 text-rose-600",
+      borderColor: "border-t-rose-500"
     }
   ];
 

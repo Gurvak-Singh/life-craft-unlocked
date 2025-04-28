@@ -27,11 +27,19 @@ const DIY = () => {
     },
   ];
 
+  // Theme colors for DIY
+  const themeColors = {
+    bgColor: "from-rose-500 to-rose-600",
+    iconColor: "bg-rose-100 text-rose-600",
+    borderColor: "border-t-rose-500",
+    accentColor: "bg-rose-500 hover:bg-rose-600"
+  };
+
   return (
     <SkillPageLayout 
       title="DIY Project Skills" 
       description="Learn how to create, build, and make things with your own hands. Develop DIY skills that will help you complete projects around your home and express your creativity."
-      bgColor="from-rose-500 to-rose-600"
+      {...themeColors}
     >
       {/* Popular Tutorials */}
       <section className="py-16">
@@ -41,15 +49,15 @@ const DIY = () => {
             {tutorials.map((tutorial) => {
               const Icon = tutorial.icon;
               return (
-                <Card key={tutorial.title} className="overflow-hidden h-full transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg border-t-4 border-t-rose-500">
+                <Card key={tutorial.title} className={`overflow-hidden h-full transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg border-t-4 ${themeColors.borderColor}`}>
                   <CardContent className="p-6">
-                    <div className="bg-rose-100 p-3 rounded-full mb-4 text-rose-600 shadow-md w-12 h-12 flex items-center justify-center">
+                    <div className={`${themeColors.iconColor} p-3 rounded-full mb-4 shadow-md w-12 h-12 flex items-center justify-center`}>
                       <Icon className="h-6 w-6" />
                     </div>
                     <h3 className="text-lg font-medium mb-2">{tutorial.title}</h3>
                     <p className="text-gray-600 mb-4">{tutorial.description}</p>
                     <Link to={tutorial.path}>
-                      <Button className="w-full bg-rose-500 hover:bg-rose-600">
+                      <Button className={`w-full ${themeColors.accentColor}`}>
                         Start Learning
                       </Button>
                     </Link>
@@ -71,15 +79,15 @@ const DIY = () => {
                 <h3 className="text-xl font-medium mb-4">Getting Started</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
-                    <span className="bg-rose-100 p-1 rounded-full text-rose-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Start with simple projects to build confidence</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-rose-100 p-1 rounded-full text-rose-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Invest in quality basic tools that will last</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-rose-100 p-1 rounded-full text-rose-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Always measure twice, cut once</span>
                   </li>
                 </ul>
@@ -90,15 +98,15 @@ const DIY = () => {
                 <h3 className="text-xl font-medium mb-4">Safety First</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
-                    <span className="bg-rose-100 p-1 rounded-full text-rose-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Always wear appropriate safety gear</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-rose-100 p-1 rounded-full text-rose-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Read tool manuals before first use</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-rose-100 p-1 rounded-full text-rose-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Keep your workspace clean and organized</span>
                   </li>
                 </ul>

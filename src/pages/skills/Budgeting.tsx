@@ -27,11 +27,19 @@ const Budgeting = () => {
     },
   ];
 
+  // Theme colors for Budgeting
+  const themeColors = {
+    bgColor: "from-green-500 to-green-600",
+    iconColor: "bg-green-100 text-green-600",
+    borderColor: "border-t-green-500",
+    accentColor: "bg-green-500 hover:bg-green-600"
+  };
+
   return (
     <SkillPageLayout 
       title="Budgeting Skills" 
       description="Master your personal finances with practical budgeting skills that will help you save money, reduce debt, and achieve your financial goals."
-      bgColor="from-green-500 to-green-600"
+      {...themeColors}
     >
       {/* Popular Tutorials */}
       <section className="py-16">
@@ -41,15 +49,15 @@ const Budgeting = () => {
             {tutorials.map((tutorial) => {
               const Icon = tutorial.icon;
               return (
-                <Card key={tutorial.title} className="overflow-hidden h-full transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg border-t-4 border-t-green-500">
+                <Card key={tutorial.title} className={`overflow-hidden h-full transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg border-t-4 ${themeColors.borderColor}`}>
                   <CardContent className="p-6">
-                    <div className="bg-green-100 p-3 rounded-full mb-4 text-green-600 shadow-md w-12 h-12 flex items-center justify-center">
+                    <div className={`${themeColors.iconColor} p-3 rounded-full mb-4 shadow-md w-12 h-12 flex items-center justify-center`}>
                       <Icon className="h-6 w-6" />
                     </div>
                     <h3 className="text-lg font-medium mb-2">{tutorial.title}</h3>
                     <p className="text-gray-600 mb-4">{tutorial.description}</p>
                     <Link to={tutorial.path}>
-                      <Button className="w-full bg-green-500 hover:bg-green-600">
+                      <Button className={`w-full ${themeColors.accentColor}`}>
                         Start Learning
                       </Button>
                     </Link>
@@ -71,15 +79,15 @@ const Budgeting = () => {
                 <h3 className="text-xl font-medium mb-4">Getting Started</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
-                    <span className="bg-green-100 p-1 rounded-full text-green-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Track all spending for 30 days to understand your habits</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-green-100 p-1 rounded-full text-green-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Categorize expenses as needs, wants, and savings</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-green-100 p-1 rounded-full text-green-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Aim for the 50/30/20 rule: 50% needs, 30% wants, 20% savings</span>
                   </li>
                 </ul>
@@ -90,15 +98,15 @@ const Budgeting = () => {
                 <h3 className="text-xl font-medium mb-4">Next Steps</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
-                    <span className="bg-green-100 p-1 rounded-full text-green-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Build an emergency fund of 3-6 months of expenses</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-green-100 p-1 rounded-full text-green-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Automate bill payments and savings transfers</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-green-100 p-1 rounded-full text-green-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Review and adjust your budget quarterly</span>
                   </li>
                 </ul>

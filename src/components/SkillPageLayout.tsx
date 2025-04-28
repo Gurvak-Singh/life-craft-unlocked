@@ -11,13 +11,19 @@ interface SkillPageLayoutProps {
   description: string;
   children: ReactNode;
   bgColor?: string;
+  iconColor?: string;
+  borderColor?: string;
+  accentColor?: string;
 }
 
 const SkillPageLayout = ({ 
   title, 
   description, 
   children, 
-  bgColor = "from-teal-500 to-teal-600" 
+  bgColor = "from-teal-500 to-teal-600",
+  iconColor = "bg-teal-100 text-teal-600",
+  borderColor = "border-t-teal-500",
+  accentColor = "bg-teal-500 hover:bg-teal-600"
 }: SkillPageLayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col">

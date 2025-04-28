@@ -27,11 +27,19 @@ const Cooking = () => {
     },
   ];
 
+  // Theme colors for Cooking
+  const themeColors = {
+    bgColor: "from-amber-500 to-amber-600",
+    iconColor: "bg-amber-100 text-amber-600",
+    borderColor: "border-t-amber-500",
+    accentColor: "bg-amber-500 hover:bg-amber-600"
+  };
+
   return (
     <SkillPageLayout 
       title="Cooking Skills" 
       description="Develop practical cooking skills that will help you create delicious, nutritious meals while saving money and enjoying the process of cooking at home."
-      bgColor="from-amber-500 to-amber-600"
+      {...themeColors}
     >
       {/* Popular Tutorials */}
       <section className="py-16">
@@ -41,15 +49,15 @@ const Cooking = () => {
             {tutorials.map((tutorial) => {
               const Icon = tutorial.icon;
               return (
-                <Card key={tutorial.title} className="overflow-hidden h-full transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg border-t-4 border-t-amber-500">
+                <Card key={tutorial.title} className={`overflow-hidden h-full transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg border-t-4 ${themeColors.borderColor}`}>
                   <CardContent className="p-6">
-                    <div className="bg-amber-100 p-3 rounded-full mb-4 text-amber-600 shadow-md w-12 h-12 flex items-center justify-center">
+                    <div className={`${themeColors.iconColor} p-3 rounded-full mb-4 shadow-md w-12 h-12 flex items-center justify-center`}>
                       <Icon className="h-6 w-6" />
                     </div>
                     <h3 className="text-lg font-medium mb-2">{tutorial.title}</h3>
                     <p className="text-gray-600 mb-4">{tutorial.description}</p>
                     <Link to={tutorial.path}>
-                      <Button className="w-full bg-amber-500 hover:bg-amber-600">
+                      <Button className={`w-full ${themeColors.accentColor}`}>
                         Start Learning
                       </Button>
                     </Link>
@@ -71,19 +79,19 @@ const Cooking = () => {
                 <h3 className="text-xl font-medium mb-4">Basic Cookware</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
-                    <span className="bg-amber-100 p-1 rounded-full text-amber-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Chef's knife and cutting board</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-amber-100 p-1 rounded-full text-amber-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Medium and large saucepans</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-amber-100 p-1 rounded-full text-amber-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Nonstick skillet or frying pan</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-amber-100 p-1 rounded-full text-amber-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Baking sheet and casserole dish</span>
                   </li>
                 </ul>
@@ -94,19 +102,19 @@ const Cooking = () => {
                 <h3 className="text-xl font-medium mb-4">Basic Ingredients</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
-                    <span className="bg-amber-100 p-1 rounded-full text-amber-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Cooking oils (olive, vegetable)</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-amber-100 p-1 rounded-full text-amber-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Salt, pepper, and basic spices</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-amber-100 p-1 rounded-full text-amber-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Flour, sugar, and rice</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-amber-100 p-1 rounded-full text-amber-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Stock/broth and canned tomatoes</span>
                   </li>
                 </ul>

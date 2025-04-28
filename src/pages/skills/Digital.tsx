@@ -27,11 +27,19 @@ const Digital = () => {
     },
   ];
 
+  // Theme colors for Digital Literacy
+  const themeColors = {
+    bgColor: "from-purple-500 to-purple-600",
+    iconColor: "bg-purple-100 text-purple-600",
+    borderColor: "border-t-purple-500",
+    accentColor: "bg-purple-500 hover:bg-purple-600"
+  };
+
   return (
     <SkillPageLayout 
       title="Digital Literacy Skills" 
       description="Navigate the digital world with confidence. Learn essential skills for using technology effectively, safely, and productively in your daily life."
-      bgColor="from-purple-500 to-purple-600"
+      {...themeColors}
     >
       {/* Popular Tutorials */}
       <section className="py-16">
@@ -41,15 +49,15 @@ const Digital = () => {
             {tutorials.map((tutorial) => {
               const Icon = tutorial.icon;
               return (
-                <Card key={tutorial.title} className="overflow-hidden h-full transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg border-t-4 border-t-purple-500">
+                <Card key={tutorial.title} className={`overflow-hidden h-full transform transition-all duration-300 hover:-translate-y-1 hover:shadow-lg border-t-4 ${themeColors.borderColor}`}>
                   <CardContent className="p-6">
-                    <div className="bg-purple-100 p-3 rounded-full mb-4 text-purple-600 shadow-md w-12 h-12 flex items-center justify-center">
+                    <div className={`${themeColors.iconColor} p-3 rounded-full mb-4 shadow-md w-12 h-12 flex items-center justify-center`}>
                       <Icon className="h-6 w-6" />
                     </div>
                     <h3 className="text-lg font-medium mb-2">{tutorial.title}</h3>
                     <p className="text-gray-600 mb-4">{tutorial.description}</p>
                     <Link to={tutorial.path}>
-                      <Button className="w-full bg-purple-500 hover:bg-purple-600">
+                      <Button className={`w-full ${themeColors.accentColor}`}>
                         Start Learning
                       </Button>
                     </Link>
@@ -71,15 +79,15 @@ const Digital = () => {
                 <h3 className="text-xl font-medium mb-4">Password Security</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
-                    <span className="bg-purple-100 p-1 rounded-full text-purple-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Use strong, unique passwords for each account</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-purple-100 p-1 rounded-full text-purple-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Enable two-factor authentication when available</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-purple-100 p-1 rounded-full text-purple-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Consider using a password manager</span>
                   </li>
                 </ul>
@@ -90,15 +98,15 @@ const Digital = () => {
                 <h3 className="text-xl font-medium mb-4">Online Behavior</h3>
                 <ul className="space-y-2">
                   <li className="flex items-start">
-                    <span className="bg-purple-100 p-1 rounded-full text-purple-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Be careful what you share on social media</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-purple-100 p-1 rounded-full text-purple-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Verify sources before sharing information</span>
                   </li>
                   <li className="flex items-start">
-                    <span className="bg-purple-100 p-1 rounded-full text-purple-600 mr-2">✓</span>
+                    <span className={`${themeColors.iconColor} p-1 rounded-full mr-2`}>✓</span>
                     <span>Be wary of emails requesting personal information</span>
                   </li>
                 </ul>
