@@ -61,13 +61,13 @@ export const skillThemes = {
 
 // Default theme to fall back to if not on a skill page
 export const defaultTheme = {
-  color: "teal",
-  bgColor: "from-teal-500 to-teal-600",
-  iconColor: "bg-teal-100 text-teal-600",
-  borderColor: "border-t-teal-500",
-  accentColor: "bg-teal-500 hover:bg-teal-600",
-  textColor: "text-teal-500",
-  hoverBgColor: "hover:bg-teal-50"
+  color: "pink",
+  bgColor: "from-pink-500 to-rose-600",
+  iconColor: "bg-pink-100 text-rose-600",
+  borderColor: "border-t-pink-500",
+  accentColor: "bg-pink-500 hover:bg-rose-600",
+  textColor: "text-pink-500",
+  hoverBgColor: "hover:bg-pink-50"
 };
 
 export type ThemeColors = typeof defaultTheme;

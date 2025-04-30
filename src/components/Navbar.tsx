@@ -33,9 +33,16 @@ const Navbar = () => {
     setIsMenuOpen(false);
   }, [location]);
 
+  // Determine if we're on the home page
+  const isHomePage = location.pathname === '/';
+
   return (
-    <header className={`sticky top-0 z-40 w-full border-b backdrop-blur transition-all duration-300 ${
-      isScrolled ? 'bg-background/95 shadow-sm' : 'bg-background/70'
+    <header className={`sticky top-0 z-40 w-full transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-background/95 shadow-sm border-b' 
+        : isHomePage 
+          ? 'bg-cream-50/70' 
+          : 'bg-background/70 backdrop-blur'
     }`}>
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
@@ -72,7 +79,13 @@ const Navbar = () => {
             <Search className="h-5 w-5" />
           </Button>
           <PrimaryButton 
-            className={`transition-transform hover:scale-105 ${location.pathname.startsWith('/skills/') ? themeColors.accentColor : ''}`}
+            className={`rounded-full transition-transform hover:scale-105 ${
+              location.pathname === '/' 
+                ? 'bg-pink-500 hover:bg-rose-600' 
+                : location.pathname.startsWith('/skills/') 
+                  ? themeColors.accentColor 
+                  : ''
+            }`}
           >
             <User className="mr-2 h-4 w-4" />
             Sign In
@@ -91,7 +104,13 @@ const Navbar = () => {
             
             <div className="mt-6">
               <PrimaryButton 
-                className={`w-full flex justify-center ${location.pathname.startsWith('/skills/') ? themeColors.accentColor : ''}`}
+                className={`w-full rounded-full flex justify-center ${
+                  location.pathname === '/' 
+                    ? 'bg-pink-500 hover:bg-rose-600' 
+                    : location.pathname.startsWith('/skills/') 
+                      ? themeColors.accentColor 
+                      : ''
+                }`}
               >
                 <User className="mr-2 h-4 w-4" />
                 Sign In

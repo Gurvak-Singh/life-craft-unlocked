@@ -87,7 +87,20 @@ export default {
 					700: "#996900",
 					800: "#664600",
 					900: "#332300",
-				}
+				},
+        // New cream color for background
+        "cream": {
+          50: "#fdfbf7",
+          100: "#fbf7ef",
+          200: "#f7efdf",
+          300: "#f3e7cf",
+          400: "#efdfbf",
+          500: "#ebd7af",
+          600: "#bc ac 8c",
+          700: "#8d8169",
+          800: "#5e5646",
+          900: "#2f2b23",
+        }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
