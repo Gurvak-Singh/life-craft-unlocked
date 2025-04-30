@@ -39,10 +39,10 @@ const Navbar = () => {
   return (
     <header className={`sticky top-0 z-40 w-full transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white shadow-sm' // Change to solid white background when scrolled, remove border-b
+        ? 'bg-white shadow-sm' 
         : isHomePage 
-          ? 'bg-cream-50' // Use solid background on home page 
-          : 'bg-white' // Use solid background elsewhere
+          ? 'bg-cream-50' 
+          : 'bg-white'
     }`}>
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
@@ -93,7 +93,7 @@ const Navbar = () => {
         </div>
       </div>
       
-      {/* Mobile menu - Fix mobile menu background to be solid white */}
+      {/* Mobile menu */}
       {isMenuOpen && (
         <div className="fixed inset-0 top-16 z-50 bg-white md:hidden animate-fade-in">
           <nav className="container flex flex-col gap-2 p-6">
@@ -123,7 +123,7 @@ const Navbar = () => {
   );
 };
 
-// Helper components for navigation links - Fix active indicator to not use after pseudo-element
+// Helper components for navigation links
 const NavLink = ({ to, label, active, themeColors }: { 
   to: string; 
   label: string; 
