@@ -35,8 +35,8 @@ const SkillPageLayout = ({
         {/* Hero Section with blob shapes */}
         <section className={`relative bg-gradient-to-r ${bgColor} py-16 overflow-hidden`}>
           {/* Decorative blobs */}
-          <div className="absolute left-0 bottom-0 w-32 h-32 rounded-full bg-pink-200 opacity-20 transform translate-y-1/2 -translate-x-1/4"></div>
-          <div className="absolute right-10 top-10 w-20 h-20 rounded-full bg-rose-300 opacity-20"></div>
+          <div className="absolute left-0 bottom-0 w-32 h-32 rounded-full bg-white opacity-20 transform translate-y-1/2 -translate-x-1/4"></div>
+          <div className="absolute right-10 top-10 w-20 h-20 rounded-full bg-white opacity-20"></div>
           
           <div className="container relative z-10">
             <div className="flex items-center mb-6">

@@ -39,10 +39,10 @@ const Navbar = () => {
   return (
     <header className={`sticky top-0 z-40 w-full transition-all duration-300 ${
       isScrolled 
-        ? 'bg-background/95 shadow-sm border-b' 
+        ? 'bg-white shadow-sm' // Change to solid white background when scrolled, remove border-b
         : isHomePage 
-          ? 'bg-cream-50/70' 
-          : 'bg-background/70 backdrop-blur'
+          ? 'bg-cream-50' // Use solid background on home page 
+          : 'bg-white' // Use solid background elsewhere
     }`}>
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
@@ -93,9 +93,9 @@ const Navbar = () => {
         </div>
       </div>
       
-      {/* Mobile menu */}
+      {/* Mobile menu - Fix mobile menu background to be solid white */}
       {isMenuOpen && (
-        <div className="fixed inset-0 top-16 z-50 bg-background md:hidden animate-fade-in">
+        <div className="fixed inset-0 top-16 z-50 bg-white md:hidden animate-fade-in">
           <nav className="container flex flex-col gap-2 p-6">
             <MobileNavLink to="/" label="Home" themeColors={themeColors} />
             <MobileNavLink to="/skills" label="Skills" themeColors={themeColors} />
@@ -123,7 +123,7 @@ const Navbar = () => {
   );
 };
 
-// Helper components for navigation links
+// Helper components for navigation links - Fix active indicator to not use after pseudo-element
 const NavLink = ({ to, label, active, themeColors }: { 
   to: string; 
   label: string; 
@@ -133,7 +133,7 @@ const NavLink = ({ to, label, active, themeColors }: {
   <Link 
     to={to} 
     className={`relative font-medium transition-colors hover:${themeColors.textColor} 
-      ${active ? `${themeColors.textColor} after:absolute after:bottom-[-18px] after:left-0 after:h-0.5 after:w-full after:${themeColors.borderColor.replace('border-t-', 'bg-')}` : 'text-gray-700'}`}
+      ${active ? `${themeColors.textColor} font-semibold` : 'text-gray-700'}`}
   >
     {label}
   </Link>
