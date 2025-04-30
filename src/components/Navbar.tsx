@@ -39,10 +39,10 @@ const Navbar = () => {
   return (
     <header className={`sticky top-0 z-40 w-full transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white shadow-sm' 
+        ? 'bg-white shadow-md border-none' 
         : isHomePage 
-          ? 'bg-cream-50' 
-          : 'bg-white'
+          ? 'bg-cream-50 border-none' 
+          : 'bg-white border-none'
     }`}>
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
@@ -75,7 +75,11 @@ const Navbar = () => {
         </nav>
         
         <div className="hidden md:flex items-center gap-4">
-          <Button variant="ghost" size="icon" className={`text-gray-700 ${themeColors.hoverBgColor}`}>
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className={`text-gray-700 ${themeColors.hoverBgColor} rounded-full`}
+          >
             <Search className="h-5 w-5" />
           </Button>
           <PrimaryButton 
@@ -95,7 +99,7 @@ const Navbar = () => {
       
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="fixed inset-0 top-16 z-50 bg-white md:hidden animate-fade-in">
+        <div className="fixed inset-0 top-16 z-50 bg-white md:hidden animate-fade-in shadow-lg">
           <nav className="container flex flex-col gap-2 p-6">
             <MobileNavLink to="/" label="Home" themeColors={themeColors} />
             <MobileNavLink to="/skills" label="Skills" themeColors={themeColors} />
@@ -136,6 +140,9 @@ const NavLink = ({ to, label, active, themeColors }: {
       ${active ? `${themeColors.textColor} font-semibold` : 'text-gray-700'}`}
   >
     {label}
+    {active && (
+      <span className={`absolute bottom-[-4px] left-0 w-full h-[3px] rounded-full ${themeColors.textColor.replace('text', 'bg')}`} />
+    )}
   </Link>
 );
 
