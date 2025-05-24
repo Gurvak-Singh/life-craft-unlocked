@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Search, Menu, X, User } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -7,6 +7,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const scrollPositionRef = useRef(0);
 
   // Handle scroll effect
   useEffect(() => {
@@ -29,39 +30,93 @@ const Navbar = () => {
     setIsMenuOpen(false);
   }, [location]);
 
-  // Comprehensive scroll prevention for mobile menu
+  // Ultra-comprehensive scroll prevention for mobile menu
   useEffect(() => {
     if (isMenuOpen) {
-      // Get current scroll position
-      const scrollY = window.scrollY;
+      // Store current scroll position
+      scrollPositionRef.current = window.pageYOffset || document.documentElement.scrollTop;
 
-      // Prevent scrolling on multiple levels
+      // Apply multiple layers of scroll prevention
       document.body.style.overflow = 'hidden';
       document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
+      document.body.style.top = `-${scrollPositionRef.current}px`;
+      document.body.style.left = '0';
+      document.body.style.right = '0';
       document.body.style.width = '100%';
+      document.body.style.height = '100vh';
       document.documentElement.style.overflow = 'hidden';
+      document.documentElement.style.position = 'fixed';
+      document.documentElement.style.height = '100vh';
+      document.documentElement.style.width = '100%';
 
-      // Prevent touch scrolling on mobile
-      const preventDefault = (e: TouchEvent) => {
+      // Add classes to both body and html for CSS targeting
+      document.body.classList.add('menu-open');
+      document.documentElement.classList.add('menu-open');
+
+      // Prevent all scroll-related events
+      const preventScroll = (e: Event) => {
         e.preventDefault();
+        e.stopPropagation();
+        return false;
       };
 
-      document.addEventListener('touchmove', preventDefault, { passive: false });
+      const preventTouchMove = (e: TouchEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      };
+
+      const preventWheel = (e: WheelEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      };
+
+      const preventKeyScroll = (e: KeyboardEvent) => {
+        const scrollKeys = [32, 33, 34, 35, 36, 37, 38, 39, 40]; // space, page up/down, end, home, arrows
+        if (scrollKeys.includes(e.keyCode)) {
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+        }
+      };
+
+      // Add event listeners with high priority
+      document.addEventListener('touchmove', preventTouchMove, { passive: false, capture: true });
+      document.addEventListener('touchstart', preventScroll, { passive: false, capture: true });
+      document.addEventListener('wheel', preventWheel, { passive: false, capture: true });
+      document.addEventListener('scroll', preventScroll, { passive: false, capture: true });
+      document.addEventListener('keydown', preventKeyScroll, { passive: false, capture: true });
+      window.addEventListener('scroll', preventScroll, { passive: false, capture: true });
 
       return () => {
-        // Restore scrolling and position
+        // Remove classes
+        document.body.classList.remove('menu-open');
+        document.documentElement.classList.remove('menu-open');
+
+        // Restore all styles
         document.body.style.overflow = '';
         document.body.style.position = '';
         document.body.style.top = '';
+        document.body.style.left = '';
+        document.body.style.right = '';
         document.body.style.width = '';
+        document.body.style.height = '';
         document.documentElement.style.overflow = '';
+        document.documentElement.style.position = '';
+        document.documentElement.style.height = '';
+        document.documentElement.style.width = '';
+
+        // Remove all event listeners
+        document.removeEventListener('touchmove', preventTouchMove, { capture: true } as any);
+        document.removeEventListener('touchstart', preventScroll, { capture: true } as any);
+        document.removeEventListener('wheel', preventWheel, { capture: true } as any);
+        document.removeEventListener('scroll', preventScroll, { capture: true } as any);
+        document.removeEventListener('keydown', preventKeyScroll, { capture: true } as any);
+        window.removeEventListener('scroll', preventScroll, { capture: true } as any);
 
         // Restore scroll position
-        window.scrollTo(0, scrollY);
-
-        // Remove touch event listener
-        document.removeEventListener('touchmove', preventDefault);
+        window.scrollTo(0, scrollPositionRef.current);
       };
     }
   }, [isMenuOpen]);
@@ -72,8 +127,8 @@ const Navbar = () => {
   return (
     <>
       <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled || !isHomePage
-          ? 'bg-white shadow-md border-b border-gray-100'
-          : 'bg-white md:bg-white/95 md:backdrop-blur-md shadow-sm'
+        ? 'bg-white shadow-md border-b border-gray-100'
+        : 'bg-white md:bg-white/95 md:backdrop-blur-md shadow-sm'
         }`}>
         <div className="container mx-auto px-6 flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
@@ -130,20 +185,36 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* Mobile menu overlay */}
+      {/* Mobile menu overlay - Completely locked */}
       {isMenuOpen && (
         <div
-          className="fixed inset-0 top-0 z-40 bg-white md:hidden overflow-hidden"
-          style={{ touchAction: 'none' }}
+          className="fixed inset-0 top-0 z-40 bg-white md:hidden"
+          style={{
+            touchAction: 'none',
+            overscrollBehavior: 'none',
+            WebkitOverflowScrolling: 'auto',
+            height: '100vh',
+            overflow: 'hidden'
+          }}
+          onTouchMove={(e) => e.preventDefault()}
+          onWheel={(e) => e.preventDefault()}
+          onScroll={(e) => e.preventDefault()}
         >
           {/* Header spacing to account for sticky header */}
-          <div className="h-16 bg-white"></div>
+          <div className="h-16 bg-white flex-shrink-0"></div>
 
-          {/* Fixed height container to prevent scrolling */}
-          <div className="h-[calc(100vh-4rem)] bg-white overflow-hidden flex flex-col">
-            <nav className="flex-1 px-6 py-6 flex flex-col justify-between overflow-hidden">
+          {/* Fixed height container with absolute positioning */}
+          <div
+            className="absolute top-16 left-0 right-0 bottom-0 bg-white flex flex-col"
+            style={{
+              height: 'calc(100vh - 4rem)',
+              overflow: 'hidden',
+              touchAction: 'none'
+            }}
+          >
+            <div className="flex-1 px-6 py-6 flex flex-col justify-between h-full overflow-hidden">
               {/* Navigation items */}
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 flex-shrink-0">
                 <MobileNavLink to="/" label="Home" onClick={() => setIsMenuOpen(false)} />
                 <MobileNavLink to="/skills" label="Skills" onClick={() => setIsMenuOpen(false)} />
                 <MobileNavLink to="/community" label="Community" onClick={() => setIsMenuOpen(false)} />
@@ -151,7 +222,7 @@ const Navbar = () => {
               </div>
 
               {/* Bottom section with sign in and search */}
-              <div className="mt-auto pt-6 border-t border-gray-200">
+              <div className="pt-6 border-t border-gray-200 flex-shrink-0">
                 <Button
                   className="w-full bg-gradient-to-r from-lifecraft-500 to-lifecraft-600 hover:from-lifecraft-600 hover:to-lifecraft-700 text-white rounded-full px-6 py-3 font-semibold transition-all duration-300 mb-4"
                   onClick={() => setIsMenuOpen(false)}
@@ -171,7 +242,7 @@ const Navbar = () => {
                   </Button>
                 </div>
               </div>
-            </nav>
+            </div>
           </div>
         </div>
       )}
@@ -204,7 +275,7 @@ const MobileNavLink = ({ to, label, onClick }: {
   <Link
     to={to}
     onClick={onClick}
-    className="flex items-center py-4 px-4 text-lg font-medium hover:bg-lifecraft-50 rounded-lg transition-all duration-300 hover:text-lifecraft-700 text-gray-700 border-b border-gray-100 last:border-b-0"
+    className="flex items-center py-4 px-4 text-lg font-medium hover:bg-lifecraft-50 rounded-lg transition-all duration-300 hover:text-lifecraft-700 text-gray-700 border-b border-gray-100 last:border-b-0 flex-shrink-0"
   >
     {label}
   </Link>
