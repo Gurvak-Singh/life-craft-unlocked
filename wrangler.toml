@@ -2,17 +2,16 @@
 name = "lifecraft"
 compatibility_date = "2024-01-01"
 
+# Pages-specific configuration
+pages_build_output_dir = "dist"
+
 [build]
 command = "npm run build"
 cwd = "/"
-watch_dir = "src"
 
-[build.upload]
-format = "service-worker"
-
-# Environment variables for different environments
+# Environment variables
 [env.production.vars]
 NODE_ENV = "production"
 
-[env.preview.vars]
+[env.preview.vars]  
 NODE_ENV = "development" 
