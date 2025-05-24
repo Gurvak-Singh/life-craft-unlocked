@@ -29,18 +29,41 @@ const Navbar = () => {
     setIsMenuOpen(false);
   }, [location]);
 
-  // Prevent body scroll when mobile menu is open
+  // Comprehensive scroll prevention for mobile menu
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+      // Get current scroll position
+      const scrollY = window.scrollY;
 
-    // Cleanup on unmount
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
+      // Prevent scrolling on multiple levels
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.documentElement.style.overflow = 'hidden';
+
+      // Prevent touch scrolling on mobile
+      const preventDefault = (e: TouchEvent) => {
+        e.preventDefault();
+      };
+
+      document.addEventListener('touchmove', preventDefault, { passive: false });
+
+      return () => {
+        // Restore scrolling and position
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.documentElement.style.overflow = '';
+
+        // Restore scroll position
+        window.scrollTo(0, scrollY);
+
+        // Remove touch event listener
+        document.removeEventListener('touchmove', preventDefault);
+      };
+    }
   }, [isMenuOpen]);
 
   // Determine if we're on the home page
@@ -109,31 +132,40 @@ const Navbar = () => {
 
       {/* Mobile menu overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 top-0 z-40 bg-white md:hidden">
+        <div
+          className="fixed inset-0 top-0 z-40 bg-white md:hidden overflow-hidden"
+          style={{ touchAction: 'none' }}
+        >
           {/* Header spacing to account for sticky header */}
           <div className="h-16 bg-white"></div>
-          {/* Full screen overlay */}
-          <div className="min-h-screen bg-white">
-            <nav className="container mx-auto px-6 py-6 flex flex-col gap-2">
-              <MobileNavLink to="/" label="Home" onClick={() => setIsMenuOpen(false)} />
-              <MobileNavLink to="/skills" label="Skills" onClick={() => setIsMenuOpen(false)} />
-              <MobileNavLink to="/community" label="Community" onClick={() => setIsMenuOpen(false)} />
-              <MobileNavLink to="/tracks" label="Learning Tracks" onClick={() => setIsMenuOpen(false)} />
 
-              <div className="mt-8 pt-6 border-t border-gray-200">
+          {/* Fixed height container to prevent scrolling */}
+          <div className="h-[calc(100vh-4rem)] bg-white overflow-hidden flex flex-col">
+            <nav className="flex-1 px-6 py-6 flex flex-col justify-between overflow-hidden">
+              {/* Navigation items */}
+              <div className="flex flex-col gap-2">
+                <MobileNavLink to="/" label="Home" onClick={() => setIsMenuOpen(false)} />
+                <MobileNavLink to="/skills" label="Skills" onClick={() => setIsMenuOpen(false)} />
+                <MobileNavLink to="/community" label="Community" onClick={() => setIsMenuOpen(false)} />
+                <MobileNavLink to="/tracks" label="Learning Tracks" onClick={() => setIsMenuOpen(false)} />
+              </div>
+
+              {/* Bottom section with sign in and search */}
+              <div className="mt-auto pt-6 border-t border-gray-200">
                 <Button
-                  className="w-full bg-gradient-to-r from-lifecraft-500 to-lifecraft-600 hover:from-lifecraft-600 hover:to-lifecraft-700 text-white rounded-full px-6 py-3 font-semibold transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-lifecraft-500 to-lifecraft-600 hover:from-lifecraft-600 hover:to-lifecraft-700 text-white rounded-full px-6 py-3 font-semibold transition-all duration-300 mb-4"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <User className="mr-2 h-4 w-4" />
                   Sign In
                 </Button>
 
-                <div className="mt-4 flex justify-center">
+                <div className="flex justify-center">
                   <Button
                     variant="ghost"
                     size="icon"
                     className="text-gray-700 hover:bg-lifecraft-50 hover:text-lifecraft-700 rounded-full"
+                    onClick={() => setIsMenuOpen(false)}
                   >
                     <Search className="h-5 w-5" />
                   </Button>
