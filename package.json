@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "deploy": "npm run build && wrangler pages deploy dist",
     "deploy:preview": "npm run build && wrangler pages deploy dist --compatibility-date=2024-01-01",
-    "cf:login": "wrangler auth login",
+    "cf:login": "wrangler login",
     "cf:dev": "wrangler pages dev dist --compatibility-date=2024-01-01"
   },
   "dependencies": {
