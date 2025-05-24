@@ -127,8 +127,8 @@ const Navbar = () => {
   return (
     <>
       <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled || !isHomePage
-        ? 'bg-white shadow-md border-b border-gray-100'
-        : 'bg-white md:bg-white/95 md:backdrop-blur-md shadow-sm'
+          ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-gray-200/60'
+          : 'bg-white/95 backdrop-blur-md shadow-sm'
         }`}>
         <div className="container mx-auto px-6 flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
