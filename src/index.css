@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,24 +13,24 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 346 77% 49%; /* Pink color */
-    --primary-foreground: 210 40% 98%;
+    --primary: 180 100% 34.3%; /* LifeCraft Teal */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 39 100% 50%; /* Orange accent */
+    --secondary: 39 100% 50%; /* LifeCraft Orange accent */
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 346 77% 49%; /* Pink accent */
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 180 100% 34.3%; /* LifeCraft Teal accent */
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 346 77% 49%;
+    --ring: 180 100% 34.3%;
 
     --radius: 1rem;
   }
@@ -46,8 +45,8 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 346 77% 49%; /* Dark mode pink */
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 180 100% 34.3%; /* Dark mode teal */
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 39 90% 50%; /* Dark mode orange */
     --secondary-foreground: 210 40% 98%;
@@ -55,7 +54,7 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 346 77% 49%; /* Dark mode pink */
+    --accent: 180 100% 34.3%; /* Dark mode teal */
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -63,7 +62,7 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 346 77% 49%;
+    --ring: 180 100% 34.3%;
   }
 }
 
@@ -75,77 +74,116 @@
   body {
     @apply bg-cream-50 text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
   }
 
-  h1, h2, h3, h4 {
-    @apply font-semibold tracking-tight;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight text-balance;
   }
 
   h1 {
-    @apply text-3xl md:text-4xl;
+    @apply text-4xl md:text-5xl lg:text-6xl;
   }
 
   h2 {
-    @apply text-2xl md:text-3xl;
+    @apply text-3xl md:text-4xl lg:text-5xl;
   }
 
   h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
     @apply text-xl md:text-2xl;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl;
+  }
+
+  h6 {
+    @apply text-base md:text-lg;
   }
   
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
   }
+
+  /* Selection styling */
+  ::selection {
+    @apply bg-lifecraft-200 text-lifecraft-900;
+  }
+
+  /* Focus visible styling */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-lifecraft-500;
+  }
 }
 
 @layer components {
+  /* Enhanced card hover effects */
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
   }
   
+  /* LifeCraft brand gradients */
   .lifecraft-gradient {
-    @apply bg-gradient-to-r from-lifecraft-500 to-lifecraft-700;
+    @apply bg-gradient-to-r from-lifecraft-500 to-lifecraft-600;
   }
   
   .lifecraft-accent-gradient {
     @apply bg-gradient-to-r from-lifecraft-accent-400 to-lifecraft-accent-600;
   }
+
+  .lifecraft-hero-gradient {
+    @apply bg-gradient-to-br from-cream-50 via-white to-lifecraft-50;
+  }
   
-  /* Feature cards */
+  /* Enhanced feature cards */
   .feature-card {
-    @apply bg-white rounded-xl p-6 shadow-sm border border-gray-100 transition-all duration-300;
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-100/50 transition-all duration-300 group;
   }
   
   .feature-card:hover {
-    @apply shadow-lg transform -translate-y-1;
+    @apply shadow-2xl transform -translate-y-3 border-lifecraft-200;
   }
   
   .feature-icon {
-    @apply w-12 h-12 rounded-full flex items-center justify-center mb-4 transition-transform duration-300;
+    @apply w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300;
   }
   
   .feature-card:hover .feature-icon {
-    @apply transform scale-110;
+    @apply transform scale-110 rotate-3;
+  }
+
+  /* Skill category cards */
+  .skill-card {
+    @apply bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-md border border-gray-100 transition-all duration-300 group cursor-pointer;
+  }
+
+  .skill-card:hover {
+    @apply shadow-xl transform -translate-y-2 border-lifecraft-200;
   }
   
-  /* For the animated underline effect */
+  /* Animated underline effect with LifeCraft colors */
   .hover-underline {
     @apply relative;
   }
   
   .hover-underline::after {
-    @apply content-[''] absolute left-0 bottom-0 w-0 h-0.5 bg-pink-500 transition-all duration-300;
+    @apply content-[''] absolute left-0 bottom-0 w-0 h-0.5 bg-lifecraft-500 transition-all duration-300;
   }
   
   .hover-underline:hover::after {
     @apply w-full;
   }
   
-  /* Card background hover effect */
+  /* Card background hover effect with LifeCraft colors */
   .card-bg-hover {
     background-position: 0 0;
-    background-image: linear-gradient(120deg, transparent 0%, transparent 50%, rgba(236, 72, 153, 0.1) 50%);
+    background-image: linear-gradient(120deg, transparent 0%, transparent 50%, rgba(0, 175, 175, 0.1) 50%);
     background-size: 250%;
     @apply transition-all duration-300;
   }
@@ -154,7 +192,7 @@
     background-position: 100% 0;
   }
   
-  /* Animated gradient text */
+  /* Animated gradient text with LifeCraft colors */
   @keyframes gradient {
     0% {background-position: 0% 50%;}
     50% {background-position: 100% 50%;}
@@ -162,19 +200,117 @@
   }
   
   .animate-gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-pink-400 to-rose-600;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-lifecraft-500 via-lifecraft-600 to-lifecraft-accent-500;
     background-size: 200% 200%;
     animation: gradient 4s ease infinite;
   }
 
-  /* Blob shapes */
-  .blob {
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    @apply absolute bg-pink-200 opacity-20;
+  /* Enhanced button styles */
+  .btn-primary {
+    @apply bg-gradient-to-r from-lifecraft-500 to-lifecraft-600 hover:from-lifecraft-600 hover:to-lifecraft-700 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95;
   }
 
-  /* Button styles */
-  .btn-primary {
-    @apply bg-pink-500 hover:bg-rose-600 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-md;
+  .btn-secondary {
+    @apply bg-white hover:bg-lifecraft-50 text-lifecraft-700 border-2 border-lifecraft-200 hover:border-lifecraft-500 font-semibold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-md;
+  }
+
+  .btn-outline {
+    @apply bg-transparent hover:bg-lifecraft-500 text-lifecraft-500 hover:text-white border-2 border-lifecraft-500 font-semibold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+  }
+
+  /* Stats counter styling */
+  .stat-number {
+    @apply text-4xl md:text-5xl font-bold bg-gradient-to-r from-lifecraft-600 to-lifecraft-accent-600 bg-clip-text text-transparent;
+  }
+
+  /* Testimonial cards */
+  .testimonial-card {
+    @apply bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-100/50 transition-all duration-300;
+  }
+
+  .testimonial-card:hover {
+    @apply shadow-xl transform -translate-y-1;
+  }
+
+  /* Section backgrounds */
+  .section-cream {
+    @apply bg-gradient-to-b from-cream-50 to-white;
+  }
+
+  .section-lifecraft {
+    @apply bg-gradient-to-r from-lifecraft-500 to-lifecraft-accent-500;
+  }
+
+  .section-teal-light {
+    @apply bg-gradient-to-r from-lifecraft-50 to-lifecraft-accent-50;
+  }
+
+  /* Loading animations */
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Floating elements animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Hero text effects */
+  .hero-title {
+    @apply text-5xl md:text-7xl font-bold leading-tight tracking-tight;
+  }
+
+  .hero-subtitle {
+    @apply text-xl md:text-2xl text-gray-600 leading-relaxed;
+  }
+
+  /* Badge styles */
+  .badge-lifecraft {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-lifecraft-100 text-lifecraft-700 border border-lifecraft-200;
+  }
+
+  .badge-accent {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-lifecraft-accent-100 text-lifecraft-accent-700 border border-lifecraft-accent-200;
+  }
+
+  /* Icon containers with LifeCraft styling */
+  .icon-lifecraft {
+    @apply w-12 h-12 bg-lifecraft-500 text-white rounded-xl flex items-center justify-center;
+  }
+
+  .icon-accent {
+    @apply w-12 h-12 bg-lifecraft-accent-500 text-white rounded-xl flex items-center justify-center;
+  }
+
+  /* Glass morphism effect */
+  .glass {
+    @apply bg-white/20 backdrop-blur-lg border border-white/20;
+  }
+
+  /* Enhanced shadows with LifeCraft colors */
+  .shadow-lifecraft {
+    box-shadow: 0 10px 25px -5px rgba(0, 175, 175, 0.1), 0 10px 10px -5px rgba(0, 175, 175, 0.04);
+  }
+
+  .shadow-lifecraft-lg {
+    box-shadow: 0 25px 50px -12px rgba(0, 175, 175, 0.15);
   }
 }

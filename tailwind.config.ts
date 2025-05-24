@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -88,19 +87,32 @@ export default {
 					800: "#664600",
 					900: "#332300",
 				},
-        // New cream color for background
-        "cream": {
-          50: "#fdfbf7",
-          100: "#fbf7ef",
-          200: "#f7efdf",
-          300: "#f3e7cf",
-          400: "#efdfbf",
-          500: "#ebd7af",
-          600: "#bc ac 8c",
-          700: "#8d8169",
-          800: "#5e5646",
-          900: "#2f2b23",
-        }
+				// Cream color for background
+				"cream": {
+					50: "#fdfbf7",
+					100: "#fbf7ef",
+					200: "#f7efdf",
+					300: "#f3e7cf",
+					400: "#efdfbf",
+					500: "#ebd7af",
+					600: "#bcac8c",
+					700: "#8d8169",
+					800: "#5e5646",
+					900: "#2f2b23",
+				},
+				// Mint color for modern design
+				"mint": {
+					50: "#f0fdf9",
+					100: "#ccfde6",
+					200: "#99fbcd",
+					300: "#66f7b3",
+					400: "#33f399",
+					500: "#00ef80",
+					600: "#00bf66",
+					700: "#008f4d",
+					800: "#005f33",
+					900: "#002f1a",
+				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

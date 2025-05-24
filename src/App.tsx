@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,6 +13,12 @@ import MonthlyBudget from "./pages/tutorials/MonthlyBudget";
 import CarOilChange from "./pages/tutorials/CarOilChange";
 import CookingTechniques from "./pages/tutorials/CookingTechniques";
 import NotFound from "./pages/NotFound";
+
+// Legal and company pages - Required by sitemap.md
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 // Skill category pages
 import HomeRepair from "./pages/skills/HomeRepair";
@@ -37,6 +42,12 @@ const App = () => (
           <Route path="/community" element={<Community />} />
           <Route path="/tracks" element={<Tracks />} />
 
+          {/* Legal and company pages - Required by sitemap.md */}
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/terms" element={<Terms />} />
+
           {/* Skill category pages */}
           <Route path="/skills/home-repair" element={<HomeRepair />} />
           <Route path="/skills/car-maintenance" element={<CarMaintenance />} />
@@ -51,7 +62,7 @@ const App = () => (
           <Route path="/tutorials/monthly-budget" element={<MonthlyBudget />} />
           <Route path="/tutorials/car-oil-change" element={<CarOilChange />} />
           <Route path="/tutorials/cooking-techniques" element={<CookingTechniques />} />
-          
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

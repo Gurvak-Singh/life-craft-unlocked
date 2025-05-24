@@ -1,12 +1,43 @@
 :root {
+  /* Core LifeCraft Brand Colors */
   --primary: #00afaf;
   --primary-hover: #008c8c;
   --primary-light: rgba(0, 175, 175, 0.1);
-  --text-primary: #333333;
-  --text-secondary: #666666;
+  --primary-foreground: #ffffff;
+  
+  /* Accent Colors */
+  --accent: #ffaf00;
+  --accent-hover: #cc8c00;
+  --accent-light: rgba(255, 175, 0, 0.1);
+  
+  /* Text Colors */
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  
+  /* Background Colors */
   --background: #ffffff;
-  --background-secondary: #f8f8f8;
-  --border: #e2e8f0;
+  --background-secondary: #f9fafb;
+  --background-muted: #f3f4f6;
+  --cream-light: #fdfbf7;
+  
+  /* Border Colors */
+  --border: #e5e7eb;
+  --border-muted: #f3f4f6;
+  
+  /* Shadow Colors */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  
+  /* Radius */
+  --radius-sm: 0.25rem;
+  --radius: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
 }
 
 .bg-primary {
@@ -33,95 +64,209 @@
   color: var(--primary);
 }
 
+/* Enhanced Button Styles */
 .btn-primary {
-  background-color: var(--primary);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  font-weight: 500;
-  transition: background-color 0.2s ease;
+  background: linear-gradient(135deg, var(--primary), #00c4c4);
+  color: var(--primary-foreground);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-primary:hover {
-  background-color: var(--primary-hover);
+  background: linear-gradient(135deg, var(--primary-hover), #009999);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary {
+  background: var(--background);
+  color: var(--primary);
+  border: 1px solid var(--border);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
 }
 
 .btn-outline {
-  background-color: transparent;
+  background: transparent;
   color: var(--primary);
-  border: 1px solid var(--primary);
-  padding: 0.5rem 1rem;
-  border-radius: 0.375rem;
-  font-weight: 500;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  border: 2px solid var(--primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .btn-outline:hover {
-  background-color: var(--primary-light);
-  color: var(--primary);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Enhanced Card Styles */
+.card {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(0, 175, 175, 0.2);
+}
+
+.card-gradient {
+  background: linear-gradient(135deg, var(--background) 0%, var(--cream-light) 100%);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-header {
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+}
+
+/* Section Styles */
+.section {
+  padding: 5rem 0;
+}
+
+.section-sm {
+  padding: 3rem 0;
+}
+
+.section-lg {
+  padding: 7rem 0;
 }
 
 .section-title {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: var(--text-primary);
+  line-height: 1.2;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-title {
+    font-size: 3.5rem;
+  }
 }
 
 .section-subtitle {
   font-size: 1.125rem;
   text-align: center;
-  max-width: 800px;
+  max-width: 48rem;
   margin: 0 auto 3rem auto;
   color: var(--text-secondary);
+  line-height: 1.6;
 }
 
-.card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+@media (min-width: 768px) {
+  .section-subtitle {
+    font-size: 1.25rem;
+  }
 }
 
-.card-hover:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+/* Background Gradients */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, var(--primary), #00c4c4);
 }
 
-.feature-card {
-  padding: 2rem;
-  border-radius: 0.5rem;
-  background-color: var(--background);
-  border: 1px solid var(--border);
-  text-align: center;
-  height: 100%;
+.bg-gradient-accent {
+  background: linear-gradient(135deg, var(--accent), #ffbf33);
 }
 
-.feature-icon {
+.bg-gradient-cream {
+  background: linear-gradient(135deg, var(--cream-light), var(--background));
+}
+
+.bg-gradient-hero {
+  background: linear-gradient(135deg, var(--cream-light) 0%, var(--background) 50%, rgba(0, 175, 175, 0.03) 100%);
+}
+
+/* Icon Containers */
+.icon-container {
   width: 3rem;
   height: 3rem;
+  border-radius: var(--radius-lg);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1rem auto;
-  border-radius: 9999px;
+  transition: all 0.3s ease;
 }
 
-.cta-section {
-  background-color: var(--primary);
-  color: white;
-  padding: 4rem 0;
-  border-radius: 0.5rem;
-  margin: 4rem 0;
+.icon-container-sm {
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
-/* Add utility classes for consistent spacing */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+.icon-container-lg {
+  width: 4rem;
+  height: 4rem;
 }
 
-/* Badge styles */
+.icon-container-xl {
+  width: 5rem;
+  height: 5rem;
+  border-radius: var(--radius-xl);
+}
+
+.icon-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.icon-accent {
+  background: var(--accent);
+  color: var(--primary-foreground);
+}
+
+.icon-muted {
+  background: var(--background-muted);
+  color: var(--text-secondary);
+}
+
+/* Badge Styles */
 .badge {
   display: inline-flex;
   align-items: center;
@@ -130,20 +275,186 @@
   font-size: 0.75rem;
   font-weight: 500;
   line-height: 1;
+  transition: all 0.2s ease;
 }
 
 .badge-primary {
-  background-color: var(--primary-light);
+  background: var(--primary-light);
   color: var(--primary);
+  border: 1px solid rgba(0, 175, 175, 0.2);
 }
 
-/* Link styles */
-.link-primary {
+.badge-accent {
+  background: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid rgba(255, 175, 0, 0.2);
+}
+
+.badge-secondary {
+  background: var(--background-muted);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Container Utilities */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+/* Typography */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Link Styles */
+.link {
   color: var(--primary);
   text-decoration: none;
   transition: color 0.2s ease;
+  position: relative;
 }
 
-.link-primary:hover {
+.link:hover {
   color: var(--primary-hover);
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Utility Classes for Consistent Spacing */
+.space-y-section > * + * {
+  margin-top: 5rem;
+}
+
+.space-y-content > * + * {
+  margin-top: 2rem;
+}
+
+.space-y-small > * + * {
+  margin-top: 1rem;
+}
+
+/* Focus States */
+.btn-primary:focus,
+.btn-secondary:focus,
+.btn-outline:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Loading States */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Responsive Text Sizing */
+.text-responsive-sm {
+  font-size: 0.875rem;
+}
+
+.text-responsive {
+  font-size: 1rem;
+}
+
+.text-responsive-lg {
+  font-size: 1.125rem;
+}
+
+@media (min-width: 768px) {
+  .text-responsive-sm {
+    font-size: 1rem;
+  }
+  
+  .text-responsive {
+    font-size: 1.125rem;
+  }
+  
+  .text-responsive-lg {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .text-responsive-lg {
+    font-size: 1.5rem;
+  }
 }

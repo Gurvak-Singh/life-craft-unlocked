@@ -1,16 +1,12 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Search, Menu, X, User } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { PrimaryButton, Logo } from "@/components/ui/shared";
-import { useThemeColors } from "@/lib/theme-utils";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const themeColors = useThemeColors();
 
   // Handle scroll effect
   useEffect(() => {
@@ -27,7 +23,7 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-  
+
   // Close mobile menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);
@@ -37,26 +33,27 @@ const Navbar = () => {
   const isHomePage = location.pathname === '/';
 
   return (
-    <header className={`sticky top-0 z-40 w-full transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white shadow-md border-none' 
-        : isHomePage 
-          ? 'bg-cream-50 border-none' 
-          : 'bg-white border-none'
-    }`}>
-      <div className="container flex h-16 items-center justify-between">
+    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : isHomePage ? 'bg-transparent' : 'bg-white/95 backdrop-blur-md shadow-sm'}`}>
+      <div className="container mx-auto px-6 flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
-          <Logo size="lg" />
+          <Link to="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 bg-gradient-to-r from-lifecraft-500 to-lifecraft-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <span className="text-white font-bold text-lg">L</span>
+            </div>
+            <span className="text-xl font-bold bg-gradient-to-r from-lifecraft-600 to-lifecraft-accent-600 bg-clip-text text-transparent">
+              LifeCraft
+            </span>
+          </Link>
         </div>
-        
+
         {/* Mobile menu button */}
         <div className="flex md:hidden">
-          <Button 
-            variant="ghost" 
+          <Button
+            variant="ghost"
             size="icon"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
-            className={`text-gray-700 ${themeColors.hoverBgColor}`}
+            className="text-gray-700 hover:bg-lifecraft-50 hover:text-lifecraft-700"
           >
             {isMenuOpen ? (
               <X className="h-6 w-6" />
@@ -65,60 +62,48 @@ const Navbar = () => {
             )}
           </Button>
         </div>
-        
+
         {/* Desktop navigation */}
-        <nav className="hidden md:flex items-center gap-6">
-          <NavLink to="/" label="Home" active={location.pathname === '/'} themeColors={themeColors} />
-          <NavLink to="/skills" label="Skills" active={location.pathname === '/skills' || location.pathname.startsWith('/skills/')} themeColors={themeColors} />
-          <NavLink to="/community" label="Community" active={location.pathname === '/community'} themeColors={themeColors} />
-          <NavLink to="/tracks" label="Learning Tracks" active={location.pathname === '/tracks'} themeColors={themeColors} />
+        <nav className="hidden md:flex items-center gap-8">
+          <NavLink to="/" label="Home" active={location.pathname === '/'} />
+          <NavLink to="/skills" label="Skills" active={location.pathname === '/skills' || location.pathname.startsWith('/skills/')} />
+          <NavLink to="/community" label="Community" active={location.pathname === '/community'} />
+          <NavLink to="/tracks" label="Learning Tracks" active={location.pathname === '/tracks'} />
         </nav>
-        
-        <div className="hidden md:flex items-center gap-4">
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            className={`text-gray-700 ${themeColors.hoverBgColor} rounded-full`}
+
+        <div className="hidden md:flex items-center gap-3">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="text-gray-700 hover:bg-lifecraft-50 hover:text-lifecraft-700 rounded-full"
           >
             <Search className="h-5 w-5" />
           </Button>
-          <PrimaryButton 
-            className={`rounded-full transition-transform hover:scale-105 ${
-              location.pathname === '/' 
-                ? 'bg-pink-500 hover:bg-rose-600' 
-                : location.pathname.startsWith('/skills/') 
-                  ? themeColors.accentColor 
-                  : ''
-            }`}
+          <Button
+            className="bg-gradient-to-r from-lifecraft-500 to-lifecraft-600 hover:from-lifecraft-600 hover:to-lifecraft-700 text-white rounded-full px-6 py-2 font-semibold transition-all duration-300 transform hover:scale-105"
           >
             <User className="mr-2 h-4 w-4" />
             Sign In
-          </PrimaryButton>
+          </Button>
         </div>
       </div>
-      
+
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="fixed inset-0 top-16 z-50 bg-white md:hidden animate-fade-in shadow-lg">
-          <nav className="container flex flex-col gap-2 p-6">
-            <MobileNavLink to="/" label="Home" themeColors={themeColors} />
-            <MobileNavLink to="/skills" label="Skills" themeColors={themeColors} />
-            <MobileNavLink to="/community" label="Community" themeColors={themeColors} />
-            <MobileNavLink to="/tracks" label="Learning Tracks" themeColors={themeColors} />
-            
-            <div className="mt-6">
-              <PrimaryButton 
-                className={`w-full rounded-full flex justify-center ${
-                  location.pathname === '/' 
-                    ? 'bg-pink-500 hover:bg-rose-600' 
-                    : location.pathname.startsWith('/skills/') 
-                      ? themeColors.accentColor 
-                      : ''
-                }`}
+        <div className="fixed inset-0 top-16 z-40 bg-white/95 backdrop-blur-md md:hidden animate-fade-in shadow-xl">
+          <nav className="container mx-auto px-6 flex flex-col gap-2 p-6">
+            <MobileNavLink to="/" label="Home" />
+            <MobileNavLink to="/skills" label="Skills" />
+            <MobileNavLink to="/community" label="Community" />
+            <MobileNavLink to="/tracks" label="Learning Tracks" />
+
+            <div className="mt-6 pt-6 border-t border-gray-200">
+              <Button
+                className="w-full bg-gradient-to-r from-lifecraft-500 to-lifecraft-600 hover:from-lifecraft-600 hover:to-lifecraft-700 text-white rounded-full px-6 py-3 font-semibold transition-all duration-300"
               >
                 <User className="mr-2 h-4 w-4" />
                 Sign In
-              </PrimaryButton>
+              </Button>
             </div>
           </nav>
         </div>
@@ -128,30 +113,30 @@ const Navbar = () => {
 };
 
 // Helper components for navigation links
-const NavLink = ({ to, label, active, themeColors }: { 
-  to: string; 
-  label: string; 
+const NavLink = ({ to, label, active }: {
+  to: string;
+  label: string;
   active: boolean;
-  themeColors: any;
 }) => (
-  <Link 
-    to={to} 
-    className={`relative font-medium transition-colors hover:${themeColors.textColor} 
-      ${active ? `${themeColors.textColor} font-semibold` : 'text-gray-700'}`}
+  <Link
+    to={to}
+    className={`relative font-medium transition-all duration-300 hover:text-lifecraft-600 group
+      ${active ? 'text-lifecraft-600 font-semibold' : 'text-gray-700'}`}
   >
     {label}
-    {active && (
-      <span className={`absolute bottom-[-4px] left-0 w-full h-[3px] rounded-full ${themeColors.textColor.replace('text', 'bg')}`} />
-    )}
+    <span className={`absolute bottom-[-8px] left-0 h-[2px] bg-lifecraft-500 rounded-full transition-all duration-300 ${active ? 'w-full' : 'w-0 group-hover:w-full'
+      }`} />
   </Link>
 );
 
-const MobileNavLink = ({ to, label, themeColors }: { 
-  to: string; 
+const MobileNavLink = ({ to, label }: {
+  to: string;
   label: string;
-  themeColors: any;
 }) => (
-  <Link to={to} className={`flex items-center py-3 px-4 text-lg font-medium ${themeColors.hoverBgColor} rounded-lg transition-colors hover:${themeColors.textColor}`}>
+  <Link
+    to={to}
+    className="flex items-center py-3 px-4 text-lg font-medium hover:bg-lifecraft-50 rounded-lg transition-all duration-300 hover:text-lifecraft-700 text-gray-700"
+  >
     {label}
   </Link>
 );
