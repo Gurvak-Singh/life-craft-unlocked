@@ -13,16 +13,19 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 180 100% 34.3%; /* LifeCraft Teal */
+    --primary: 180 100% 34.3%;
+    /* LifeCraft Teal */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 39 100% 50%; /* LifeCraft Orange accent */
+    --secondary: 39 100% 50%;
+    /* LifeCraft Orange accent */
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 180 100% 34.3%; /* LifeCraft Teal accent */
+    --accent: 180 100% 34.3%;
+    /* LifeCraft Teal accent */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -45,16 +48,19 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 180 100% 34.3%; /* Dark mode teal */
+    --primary: 180 100% 34.3%;
+    /* Dark mode teal */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 39 90% 50%; /* Dark mode orange */
+    --secondary: 39 90% 50%;
+    /* Dark mode orange */
     --secondary-foreground: 210 40% 98%;
 
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 180 100% 34.3%; /* Dark mode teal */
+    --accent: 180 100% 34.3%;
+    /* Dark mode teal */
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
@@ -78,7 +84,12 @@
     line-height: 1.6;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-bold tracking-tight text-balance;
   }
 
@@ -105,10 +116,31 @@
   h6 {
     @apply text-base md:text-lg;
   }
-  
+
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Ensure consistent mobile viewport */
+  @media (max-width: 768px) {
+    body {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      position: relative;
+    }
+
+    /* Fix mobile navigation issues */
+    .sticky {
+      position: -webkit-sticky;
+      position: sticky;
+    }
   }
 
   /* Selection styling */
@@ -123,16 +155,17 @@
 }
 
 @layer components {
+
   /* Enhanced card hover effects */
   .card-hover {
     @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-2;
   }
-  
+
   /* LifeCraft brand gradients */
   .lifecraft-gradient {
     @apply bg-gradient-to-r from-lifecraft-500 to-lifecraft-600;
   }
-  
+
   .lifecraft-accent-gradient {
     @apply bg-gradient-to-r from-lifecraft-accent-400 to-lifecraft-accent-600;
   }
@@ -140,20 +173,20 @@
   .lifecraft-hero-gradient {
     @apply bg-gradient-to-br from-cream-50 via-white to-lifecraft-50;
   }
-  
+
   /* Enhanced feature cards */
   .feature-card {
     @apply bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-gray-100/50 transition-all duration-300 group;
   }
-  
+
   .feature-card:hover {
     @apply shadow-2xl transform -translate-y-3 border-lifecraft-200;
   }
-  
+
   .feature-icon {
     @apply w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300;
   }
-  
+
   .feature-card:hover .feature-icon {
     @apply transform scale-110 rotate-3;
   }
@@ -166,20 +199,20 @@
   .skill-card:hover {
     @apply shadow-xl transform -translate-y-2 border-lifecraft-200;
   }
-  
+
   /* Animated underline effect with LifeCraft colors */
   .hover-underline {
     @apply relative;
   }
-  
+
   .hover-underline::after {
     @apply content-[''] absolute left-0 bottom-0 w-0 h-0.5 bg-lifecraft-500 transition-all duration-300;
   }
-  
+
   .hover-underline:hover::after {
     @apply w-full;
   }
-  
+
   /* Card background hover effect with LifeCraft colors */
   .card-bg-hover {
     background-position: 0 0;
@@ -187,18 +220,26 @@
     background-size: 250%;
     @apply transition-all duration-300;
   }
-  
+
   .card-bg-hover:hover {
     background-position: 100% 0;
   }
-  
+
   /* Animated gradient text with LifeCraft colors */
   @keyframes gradient {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
   }
-  
+
   .animate-gradient-text {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-lifecraft-500 via-lifecraft-600 to-lifecraft-accent-500;
     background-size: 200% 200%;
@@ -247,9 +288,12 @@
 
   /* Loading animations */
   @keyframes pulse-slow {
-    0%, 100% {
+
+    0%,
+    100% {
       opacity: 1;
     }
+
     50% {
       opacity: 0.5;
     }
@@ -261,9 +305,12 @@
 
   /* Floating elements animation */
   @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: translateY(0px);
     }
+
     50% {
       transform: translateY(-20px);
     }
