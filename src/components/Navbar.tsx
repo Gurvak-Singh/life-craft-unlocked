@@ -50,7 +50,7 @@ const Navbar = () => {
     <>
       <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled || !isHomePage
           ? 'bg-white shadow-md border-b border-gray-100'
-          : 'bg-white/95 backdrop-blur-md'
+          : 'bg-white md:bg-white/95 md:backdrop-blur-md shadow-sm'
         }`}>
         <div className="container mx-auto px-6 flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
@@ -109,7 +109,9 @@ const Navbar = () => {
 
       {/* Mobile menu overlay */}
       {isMenuOpen && (
-        <div className="fixed inset-0 top-16 z-40 bg-white md:hidden">
+        <div className="fixed inset-0 top-0 z-40 bg-white md:hidden">
+          {/* Header spacing to account for sticky header */}
+          <div className="h-16 bg-white"></div>
           {/* Full screen overlay */}
           <div className="min-h-screen bg-white">
             <nav className="container mx-auto px-6 py-6 flex flex-col gap-2">
